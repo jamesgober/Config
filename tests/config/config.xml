@@ -1,0 +1,16 @@
+<config>
+    <app>
+        <name>TestApp</name>
+        <version>1.0.0</version>
+    </app>
+    <debug>true</debug>
+    <database>
+        <host>localhost</host>
+        <port>3306</port>
+    </database>
+    <nested>
+        <value>5.5</value>
+    </nested>
+    <empty />
+    <flag>false</flag>
+</config>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor
+        configVersion="3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="https://www.phpdoc.org"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/phpDocumentor/phpDocumentor/master/data/xsd/phpdoc.xsd"
+>
+    <title>Config</title>
+    <version number="1.0.0-dev.1">
+        <api format="php">
+            <source dsn=".">
+                <!--1 or more repetitions:-->
+                <path>src</path>
+            </source>
+            <!--Optional:-->
+            <output>xml</output>
+            <!--Optional:-->
+            <ignore hidden="true" symlinks="true">
+                <!--1 or more repetitions:-->
+                <path>tests/**/*</path>
+            </ignore>
+            <default-package-name>JamesGober\Config</default-package-name>
+            <!--Optional:-->
+            <include-source>true</include-source>
+        </api>
+    </version>
+    <paths>
+        <output>docs/php</output>
+    </paths>
+</phpdocumentor>

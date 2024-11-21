@@ -1,0 +1,65 @@
+{
+        "name": "jamesgober/config",
+        "description": "A modular PHP library for loading, managing, and extending configurations. Supports multiple formats out of the box, including JSON, XML, YAML, INI, and custom parsers.",
+        "keywords": [
+            "php", 
+            "config", 
+            "configuration", 
+            "yaml", 
+            "json", 
+            "xml", 
+            "settings", 
+            "parser", 
+            "loader"
+        ],
+        "minimum-stability": "stable",
+        "prefer-stable": true,
+        "time": "2024-11-21",
+        "type": "library",
+        "license": "MIT",
+        "homepage": "https://github.com/jamesgober/Config",
+        "support": {
+            "issues": "https://github.com/jamesgober/Config/issues",
+            "docs": "https://github.com/jamesgober/Config#readme"
+        },
+        "authors": [
+            {
+                "name": "James Gober",
+                "email": "code@jamesgober.com",
+                "homepage": "https://jamesgober.com",
+                "role": "Developer"
+            }
+        ],
+        "require": {
+            "php": ">=8.2",
+            "ext-json": "*",
+            "ext-xml": "*",
+            "symfony/yaml": "^7.1"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^10.5.17",
+            "phpstan/phpstan": "^1.9",
+            "phpstan/phpstan-deprecation-rules": "^1.0",
+            "phpstan/phpstan-strict-rules": "^1.4"
+        },
+        "autoload": {
+            "psr-4": {
+                "JG\\Config\\": "src/"
+            }
+        },
+        "autoload-dev": {
+            "psr-4": {
+                "JG\\Config\\": "tests/"
+            }
+        },
+        "scripts": {
+            "test": "@php vendor/bin/phpunit && echo \"Tests completed!\"",
+            "phpstan": "@php vendor/bin/phpstan analyse && echo \"Static analysis completed!\"",
+            "check": [
+                "@composer validate",
+                "@phpstan",
+                "@test"
+            ],
+            "test:ci": "@php vendor/bin/phpunit --testdox"
+        }
+    }
