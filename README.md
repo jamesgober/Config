@@ -32,7 +32,8 @@ use JG\Config\Config;
 $config = new Config('/path/to/config/files');
 
 // Load a configuration file
-$config->load('config.json');
+$config->load('database.json');
+$config->load('app.xml');
 
 // Access configuration values
 $dbHost = $config->get('database.host', 'default_host');
@@ -69,66 +70,40 @@ ConfigParserFactory::registerParser('custom', MyCustomParser::class);
 ```php
 <?php
 return [
-    'database' => [
-        'host' => 'localhost',
-        'port' => 3306,
-        'user' => 'root',
-        'password' => 'secret',
-    ],
-    'app' => [
-        'debug' => true,
-        'cache' => null,
-    ],
+    'host' => 'localhost',
+    'port' => 3306,
+    'user' => 'root',
+    'password' => 'secret',
 ];
 ```
 
 #### config.json
 ```json
 {
-    "database": {
-        "host": "localhost",
-        "port": 3306,
-        "user": "root",
-        "password": "secret"
-    },
-    "app": {
-        "debug": true,
-        "cache": null
-    }
+    "host": "localhost",
+    "port": 3306,
+    "user": "root",
+    "password": "secret"
 }
 ```
 
 #### config.ini
 ```ini
-[database]
-host = localhost
-port = 3306
-user = root
-password = secret
-
 [app]
-debug = true
-cache = null
+name    = "TestApp"
+version = "1.0.0"
+debug   = true
+cache   = null
 ```
 
 #### config.xml
 ```xml
-<config>
-    <app>
-        <name>TestApp</name>
-        <version>1.0.0</version>
-    </app>
+<app>
+    <name>TestApp</name>
+    <version>1.0.0</version>
     <debug>true</debug>
-    <database>
-        <host>localhost</host>
-        <port>3306</port>
-    </database>
-    <nested>
-        <value>5.5</value>
-    </nested>
-    <empty />
-    <flag>false</flag>
-</config>
+    <cache>null</cache>
+</app>
 ```
 
 #### config.yaml
