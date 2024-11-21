@@ -1,6 +1,6 @@
 {
         "name": "jamesgober/config",
-        "description": "A modular PHP library for loading, managing, and extending configurations. Supports multiple formats out of the box, including JSON, XML, YAML, INI, and custom parsers.",
+        "description": "A PHP library for loading, managing, and extending configurations. Supports multiple formats out of the box, including JSON, XML, YAML, INI, and custom parsers.",
         "keywords": [
             "php", 
             "config", 

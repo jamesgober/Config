@@ -36,14 +36,6 @@ use \JG\Config\Exceptions\ConfigParseException;
  * 
  * @package JG\Config\Parsers
  */
-/**
- * XmlParser
- * 
- * Parses configuration data from XML files, converting them into associative arrays.
- * Handles XML errors gracefully and provides meaningful error messages.
- * 
- * @package Config\Parsers
- */
 class XmlParser implements ParserInterface
 {
     /**
