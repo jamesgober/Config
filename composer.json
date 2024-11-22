@@ -61,5 +61,11 @@
                 "@test"
             ],
             "test:ci": "@php vendor/bin/phpunit --testdox"
-        }
+        },
+        "repositories": [
+            {
+                "type": "vcs",
+                "url": "https://github.com/jamesgober/Config"
+            }
+        ]
     }
