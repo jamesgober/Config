@@ -1,0 +1,8 @@
+/tests            export-ignore
+/docs             export-ignore
+/.github          export-ignore
+/.gitignore       export-ignore
+/.phpdoc          export-ignore
+/phpdoc.xml       export-ignore
+/phpunit.xml      export-ignore
+/composer.json    export-ignore
