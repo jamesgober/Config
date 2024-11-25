@@ -128,12 +128,10 @@ class Config
      */
     public function load(?string $filePath = null, bool $makeUnique = true): bool
     {
-    
         $data = $this->parse($filePath);
         if (!is_array($data)) {
             return false;
         }
-
         return $makeUnique ? $this->groupData($data, $filePath) : $this->merge($data);
     }
 
