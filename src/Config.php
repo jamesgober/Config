@@ -129,7 +129,7 @@ class Config
     public function load(?string $filePath = null, bool $makeUnique = true): bool
     {
     
-        $data = $parser->parse($filePath);
+        $data = $this->parse($filePath);
         if (!is_array($data)) {
             return false;
         }
