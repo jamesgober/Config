@@ -1,6 +1,13 @@
-# Config
+<h1 align="center" id="top">
+    <b>CONFIG</b>
+    <br>
+    <small>
+        <sup>PHP LIBRARY</sup>
+    </small>
+</h1>
 
 **Config** is a modular PHP library for loading, managing, and extending configurations. It supports multiple formats out of the box, including JSON, XML, YAML, INI, and PHP arrays, with the flexibility to add custom parsers.
+
 
 ## Features
 
@@ -14,11 +21,12 @@
 
 ## Installation
 
-Install via Composer:
+Install via [composer](https://getcomposer.org/download/):
 
 ```bash
-composer require jamesgober/config
+$ composer require jamesgober/config
 ```
+
 
 ---
 
@@ -170,6 +178,20 @@ We welcome contributions! Please submit pull requests or report issues on [GitHu
 
 ---
 
+## **Changelog**
+For a detailed list of changes and updates in each version, please refer to the [CHANGELOG](CHANGELOG.md).
+
+---
+
 ## License
 
 This library is open-source software licensed under the [MIT license](LICENSE).
+
+
+
+&nbsp;
+[&uarr; Top](#top)
+<h2></h2>
+<p align="center"><small>COPYRIGHT &copy; 2024 JAMES GOBER.</small></p>
+
+&nbsp;

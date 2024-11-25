@@ -100,7 +100,6 @@ class Config
         if ($path && !is_dir($path)) {
             throw new ConfigException("Invalid configuration directory: {$path}");
         }
-
         $this->configPath = $path ? rtrim($path, '/') . '/' : null;
     }
 
@@ -113,6 +112,29 @@ class Config
     public function setFlatten(bool $flatten): void
     {
         $this->flatten = $flatten;
+    }
+
+    /**
+     * Loads configuration data from a file.
+     *
+     * Reads the specified file, parses its contents, and merges 
+     * the data into the existing configuration. Optionally, groups
+     * configuration keys by the file's base name to create unique keys.
+     *
+     * @param string|null $filePath   Absolute or relative path to the file.
+     * @param bool        $makeUnique Whether to group keys by file base name.
+     * 
+     * @return bool  True if the configuration was successfully loaded.
+     */
+    public function load(?string $filePath = null, bool $makeUnique = true): bool
+    {
+    
+        $data = $parser->parse($filePath);
+        if (!is_array($data)) {
+            return false;
+        }
+
+        return $makeUnique ? $this->groupData($data, $filePath) : $this->merge($data);
     }
 
     /**
