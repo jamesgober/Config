@@ -156,6 +156,38 @@ to extend via custom parsers.</p>
 
 
 
+<h4 id="toc-constants">
+    Constants
+    <a href="classes/JG-Config-Config.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/JG-Config-Config.html#constant_EXPIRE_NEVER">EXPIRE_NEVER</a>
+    <span>
+        &nbsp;= 0                            </span>
+</dt>
+<dd>Common expiration durations in seconds.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/JG-Config-Config.html#constant_EXPIRE_ONE_DAY">EXPIRE_ONE_DAY</a>
+    <span>
+        &nbsp;= 86400                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/JG-Config-Config.html#constant_EXPIRE_ONE_MONTH">EXPIRE_ONE_MONTH</a>
+    <span>
+        &nbsp;= 2592000                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/JG-Config-Config.html#constant_EXPIRE_ONE_WEEK">EXPIRE_ONE_WEEK</a>
+    <span>
+        &nbsp;= 604800                            </span>
+</dt>
+
+    </dl>
 
 
 <h4 id="toc-properties">
@@ -164,6 +196,13 @@ to extend via custom parsers.</p>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a class="" href="classes/JG-Config-Config.html#property_cacheLoaded">$cacheLoaded</a>
+    <span>
+                        &nbsp;: bool            </span>
+</dt>
+<dd>Indicates whether the configuration cache has been loaded.</dd>
+
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a class="" href="classes/JG-Config-Config.html#property_config">$config</a>
     <span>
@@ -191,6 +230,13 @@ to extend via custom parsers.</p>
                         &nbsp;: array&lt;string, array&lt;string, string&gt;&gt;            </span>
 </dt>
 <dd>Grouped configuration storage.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a class="" href="classes/JG-Config-Config.html#property_maxDepth">$maxDepth</a>
+    <span>
+                        &nbsp;: int            </span>
+</dt>
+<dd>Maximum allowed depth for nested configurations.</dd>
 
     </dl>
 
@@ -229,6 +275,13 @@ to extend via custom parsers.</p>
 <dd>Deletes a configuration key or group.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/JG-Config-Config.html#method_deleteCache">deleteCache()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Deletes a cache file.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/JG-Config-Config.html#method_fetch">fetch()</a>
     <span>
                                 &nbsp;: array&lt;string, mixed&gt;    </span>
@@ -243,6 +296,20 @@ to extend via custom parsers.</p>
 <dd>Retrieves a configuration value.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/JG-Config-Config.html#method_getAll">getAll()</a>
+    <span>
+                                &nbsp;: array&lt;string, mixed&gt;    </span>
+</dt>
+<dd>Retrieves the entire configuration array.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/JG-Config-Config.html#method_getGroups">getGroups()</a>
+    <span>
+                                &nbsp;: array&lt;string, array&lt;string, string&gt;&gt;    </span>
+</dt>
+<dd>Retrieves all configuration groups.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/JG-Config-Config.html#method_has">has()</a>
     <span>
                                 &nbsp;: bool    </span>
@@ -250,11 +317,32 @@ to extend via custom parsers.</p>
 <dd>Checks if a specific configuration key exists.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/JG-Config-Config.html#method_isCacheLoaded">isCacheLoaded()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks if the configuration cache has been loaded.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/JG-Config-Config.html#method_load">load()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Loads configuration data from a file.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/JG-Config-Config.html#method_loadCache">loadCache()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Loads the configuration and groups from a cache file.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/JG-Config-Config.html#method_saveCache">saveCache()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Saves the configuration and groups data to a cache file.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/JG-Config-Config.html#method_setConfigPath">setConfigPath()</a>
@@ -269,6 +357,13 @@ to extend via custom parsers.</p>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Enables or disables key flattening.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/JG-Config-Config.html#method_setMaxDepth">setMaxDepth()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Sets the maximum depth for nested configurations.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a class="" href="classes/JG-Config-Config.html#method_insert">insert()</a>
@@ -303,6 +398,142 @@ to extend via custom parsers.</p>
 
 
         
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/JG-Config-Config.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_EXPIRE_NEVER">
+        EXPIRE_NEVER
+        <a href="classes/JG-Config-Config.html#constant_EXPIRE_NEVER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">52</span>
+
+            <a href="classes/JG-Config-Config.html#source-view.52" class="phpdocumentor-element-found-in__source" data-line="52" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Common expiration durations in seconds.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">EXPIRE_NEVER</span>
+    = <span class="phpdocumentor-signature__default-value">0</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_EXPIRE_ONE_DAY">
+        EXPIRE_ONE_DAY
+        <a href="classes/JG-Config-Config.html#constant_EXPIRE_ONE_DAY" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">53</span>
+
+            <a href="classes/JG-Config-Config.html#source-view.53" class="phpdocumentor-element-found-in__source" data-line="53" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">EXPIRE_ONE_DAY</span>
+    = <span class="phpdocumentor-signature__default-value">86400</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_EXPIRE_ONE_MONTH">
+        EXPIRE_ONE_MONTH
+        <a href="classes/JG-Config-Config.html#constant_EXPIRE_ONE_MONTH" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">55</span>
+
+            <a href="classes/JG-Config-Config.html#source-view.55" class="phpdocumentor-element-found-in__source" data-line="55" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">EXPIRE_ONE_MONTH</span>
+    = <span class="phpdocumentor-signature__default-value">2592000</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_EXPIRE_ONE_WEEK">
+        EXPIRE_ONE_WEEK
+        <a href="classes/JG-Config-Config.html#constant_EXPIRE_ONE_WEEK" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">54</span>
+
+            <a href="classes/JG-Config-Config.html#source-view.54" class="phpdocumentor-element-found-in__source" data-line="54" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">EXPIRE_ONE_WEEK</span>
+    = <span class="phpdocumentor-signature__default-value">604800</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+            </section>
 
         
     <section class="phpdocumentor-properties">
@@ -311,6 +542,44 @@ to extend via custom parsers.</p>
             <a href="classes/JG-Config-Config.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_cacheLoaded">
+        $cacheLoaded
+        <a href="classes/JG-Config-Config.html#property_cacheLoaded" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">90</span>
+
+            <a href="classes/JG-Config-Config.html#source-view.90" class="phpdocumentor-element-found-in__source" data-line="90" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Indicates whether the configuration cache has been loaded.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$cacheLoaded</span>
+     = <span class="phpdocumentor-signature__default-value">false</span></code>
+
+    
+    
+    
+
+    
+
+</article>
                     <article
         class="
             phpdocumentor-element
@@ -328,9 +597,9 @@ to extend via custom parsers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">81</span>
+    <span class="phpdocumentor-element-found-in__line">110</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.81" class="phpdocumentor-element-found-in__source" data-line="81" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.110" class="phpdocumentor-element-found-in__source" data-line="110" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Primary configuration storage.</p>
@@ -369,9 +638,9 @@ generated from grouped configurations.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.54" class="phpdocumentor-element-found-in__source" data-line="54" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.62" class="phpdocumentor-element-found-in__source" data-line="62" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Default configuration directory path.</p>
@@ -407,9 +676,9 @@ generated from grouped configurations.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">61</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.61" class="phpdocumentor-element-found-in__source" data-line="61" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.69" class="phpdocumentor-element-found-in__source" data-line="69" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Whether configuration keys should be flattened.</p>
@@ -445,9 +714,9 @@ generated from grouped configurations.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">71</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.71" class="phpdocumentor-element-found-in__source" data-line="71" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.100" class="phpdocumentor-element-found-in__source" data-line="100" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Grouped configuration storage.</p>
@@ -464,6 +733,52 @@ source filename or unique key.</p>
 </section>
 
     
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_maxDepth">
+        $maxDepth
+        <a href="classes/JG-Config-Config.html#property_maxDepth" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">83</span>
+
+            <a href="classes/JG-Config-Config.html#source-view.83" class="phpdocumentor-element-found-in__source" data-line="83" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Maximum allowed depth for nested configurations.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">$maxDepth</span>
+     = <span class="phpdocumentor-signature__default-value">10</span></code>
+
+        <section class="phpdocumentor-description"><p>This property sets a limit on how deeply nested configurations can be
+processed by the flattening logic. Exceeding this depth will result in
+a <code class="prettyprint">ConfigException</code> being thrown to prevent performance degradation and
+manageability issues.</p>
+<p>Default: 10</p>
+</section>
+
+        <section class="phpdocumentor-description"><p>Maximum depth for nested configurations.</p>
+</section>
+
     
 
     
@@ -491,9 +806,9 @@ source filename or unique key.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">118</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.89" class="phpdocumentor-element-found-in__source" data-line="89" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.118" class="phpdocumentor-element-found-in__source" data-line="118" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Constructor.</p>
@@ -548,9 +863,9 @@ source filename or unique key.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">295</span>
+    <span class="phpdocumentor-element-found-in__line">360</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.295" class="phpdocumentor-element-found-in__source" data-line="295" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.360" class="phpdocumentor-element-found-in__source" data-line="360" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Adds or updates a configuration value.</p>
@@ -608,9 +923,9 @@ the method ensures the group and config data are updated accordingly.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">353</span>
+    <span class="phpdocumentor-element-found-in__line">512</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.353" class="phpdocumentor-element-found-in__source" data-line="353" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.512" class="phpdocumentor-element-found-in__source" data-line="512" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Clears all configuration data.</p>
@@ -644,9 +959,9 @@ the method ensures the group and config data are updated accordingly.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">333</span>
+    <span class="phpdocumentor-element-found-in__line">398</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.333" class="phpdocumentor-element-found-in__source" data-line="333" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.398" class="phpdocumentor-element-found-in__source" data-line="398" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Deletes a configuration key or group.</p>
@@ -688,6 +1003,62 @@ is deleted.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_deleteCache">
+        deleteCache()
+        <a href="classes/JG-Config-Config.html#method_deleteCache" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">502</span>
+
+            <a href="classes/JG-Config-Config.html#source-view.502" class="phpdocumentor-element-found-in__source" data-line="502" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Deletes a cache file.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">deleteCache</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filePath</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$filePath</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The file path of the cache to delete.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the cache was deleted successfully, false otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_fetch">
         fetch()
         <a href="classes/JG-Config-Config.html#method_fetch" class="headerlink"><i class="fas fa-link"></i></a>
@@ -696,9 +1067,9 @@ is deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">260</span>
+    <span class="phpdocumentor-element-found-in__line">325</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.260" class="phpdocumentor-element-found-in__source" data-line="260" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.325" class="phpdocumentor-element-found-in__source" data-line="325" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Retrieves configuration from a file.</p>
@@ -752,9 +1123,9 @@ is deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">318</span>
+    <span class="phpdocumentor-element-found-in__line">383</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.318" class="phpdocumentor-element-found-in__source" data-line="318" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.383" class="phpdocumentor-element-found-in__source" data-line="383" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Retrieves a configuration value.</p>
@@ -809,6 +1180,94 @@ is deleted.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getAll">
+        getAll()
+        <a href="classes/JG-Config-Config.html#method_getAll" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">418</span>
+
+            <a href="classes/JG-Config-Config.html#source-view.418" class="phpdocumentor-element-found-in__source" data-line="418" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Retrieves the entire configuration array.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getAll</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The configuration array.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getGroups">
+        getGroups()
+        <a href="classes/JG-Config-Config.html#method_getGroups" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">428</span>
+
+            <a href="classes/JG-Config-Config.html#source-view.428" class="phpdocumentor-element-found-in__source" data-line="428" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Retrieves all configuration groups.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getGroups</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, array&lt;string, string&gt;&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string, array&lt;string, string&gt;&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The groups array.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_has">
         has()
         <a href="classes/JG-Config-Config.html#method_has" class="headerlink"><i class="fas fa-link"></i></a>
@@ -817,9 +1276,9 @@ is deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">274</span>
+    <span class="phpdocumentor-element-found-in__line">339</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.274" class="phpdocumentor-element-found-in__source" data-line="274" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.339" class="phpdocumentor-element-found-in__source" data-line="339" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Checks if a specific configuration key exists.</p>
@@ -868,6 +1327,50 @@ If not, it then checks whether the key corresponds to a group in the grouped con
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_isCacheLoaded">
+        isCacheLoaded()
+        <a href="classes/JG-Config-Config.html#method_isCacheLoaded" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">171</span>
+
+            <a href="classes/JG-Config-Config.html#source-view.171" class="phpdocumentor-element-found-in__source" data-line="171" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks if the configuration cache has been loaded.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isCacheLoaded</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the cache has been loaded, false otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_load">
         load()
         <a href="classes/JG-Config-Config.html#method_load" class="headerlink"><i class="fas fa-link"></i></a>
@@ -876,9 +1379,9 @@ If not, it then checks whether the key corresponds to a group in the grouped con
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">202</span>
+    <span class="phpdocumentor-element-found-in__line">267</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.202" class="phpdocumentor-element-found-in__source" data-line="202" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.267" class="phpdocumentor-element-found-in__source" data-line="267" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Loads configuration data from a file.</p>
@@ -946,6 +1449,127 @@ already exists, it will be overwritten.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_loadCache">
+        loadCache()
+        <a href="classes/JG-Config-Config.html#method_loadCache" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">468</span>
+
+            <a href="classes/JG-Config-Config.html#source-view.468" class="phpdocumentor-element-found-in__source" data-line="468" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Loads the configuration and groups from a cache file.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">loadCache</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filePath</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$filePath</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The file path of the cache.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the cache was loaded successfully, false otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_saveCache">
+        saveCache()
+        <a href="classes/JG-Config-Config.html#method_saveCache" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">440</span>
+
+            <a href="classes/JG-Config-Config.html#source-view.440" class="phpdocumentor-element-found-in__source" data-line="440" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Saves the configuration and groups data to a cache file.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">saveCache</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filePath</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$expires</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$filePath</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The file path to save the cache.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$expires</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">0</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Expiration time in seconds (0 for no expiration).</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the cache was saved successfully, false otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_setConfigPath">
         setConfigPath()
         <a href="classes/JG-Config-Config.html#method_setConfigPath" class="headerlink"><i class="fas fa-link"></i></a>
@@ -954,9 +1578,9 @@ already exists, it will be overwritten.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">103</span>
+    <span class="phpdocumentor-element-found-in__line">132</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.103" class="phpdocumentor-element-found-in__source" data-line="103" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.132" class="phpdocumentor-element-found-in__source" data-line="132" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Sets the configuration directory path.</p>
@@ -1019,9 +1643,9 @@ already exists, it will be overwritten.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">146</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.117" class="phpdocumentor-element-found-in__source" data-line="117" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.146" class="phpdocumentor-element-found-in__source" data-line="146" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Enables or disables key flattening.</p>
@@ -1056,6 +1680,71 @@ already exists, it will be overwritten.</p>
                     <article
         class="phpdocumentor-element
             -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setMaxDepth">
+        setMaxDepth()
+        <a href="classes/JG-Config-Config.html#method_setMaxDepth" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">158</span>
+
+            <a href="classes/JG-Config-Config.html#source-view.158" class="phpdocumentor-element-found-in__source" data-line="158" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Sets the maximum depth for nested configurations.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setMaxDepth</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$depth</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$depth</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Maximum depth to allow.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/JG-Config-Config.html#method_setMaxDepth#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/JG-Config-Exceptions-ConfigException.html"><abbr title="\JG\Config\Exceptions\ConfigException">ConfigException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the depth is less than 1.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
             -protected
                                                         "
 >
@@ -1067,9 +1756,9 @@ already exists, it will be overwritten.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">148</span>
+    <span class="phpdocumentor-element-found-in__line">202</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.148" class="phpdocumentor-element-found-in__source" data-line="148" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.202" class="phpdocumentor-element-found-in__source" data-line="202" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Inserts configuration data into the manager.</p>
@@ -1124,9 +1813,9 @@ already exists, it will be overwritten.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">238</span>
+    <span class="phpdocumentor-element-found-in__line">303</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.238" class="phpdocumentor-element-found-in__source" data-line="238" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.303" class="phpdocumentor-element-found-in__source" data-line="303" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Parses a configuration file.</p>
@@ -1197,21 +1886,26 @@ already exists, it will be overwritten.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">163</span>
+    <span class="phpdocumentor-element-found-in__line">228</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.163" class="phpdocumentor-element-found-in__source" data-line="163" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.228" class="phpdocumentor-element-found-in__source" data-line="228" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Flattens a multidimensional array into dot-notated keys and groups.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">flattenArray</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$baseKey</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">flattenArray</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$baseKey</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$currentDepth</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>This method recursively processes a nested array, converting its keys
+into dot-notated strings for flattened storage. It tracks the current
+depth to ensure the nesting does not exceed the configured <code class="prettyprint">$maxDepth</code>.
+If the maximum depth is exceeded, a <code class="prettyprint">ConfigException</code> is thrown.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1228,13 +1922,41 @@ already exists, it will be overwritten.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The base key for flattening.</p>
+                    <section class="phpdocumentor-description"><p>The base key for flattening, used for constructing
+dot-notated keys.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$currentDepth</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">0</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The current depth of the recursion, used to enforce
+the maximum depth constraint (default: 0).</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/JG-Config-Config.html#method_flattenArray#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/JG-Config-Exceptions-ConfigException.html"><abbr title="\JG\Config\Exceptions\ConfigException">ConfigException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the maximum depth for nested configurations is exceeded.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
@@ -1266,9 +1988,9 @@ already exists, it will be overwritten.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">128</span>
+    <span class="phpdocumentor-element-found-in__line">182</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.128" class="phpdocumentor-element-found-in__source" data-line="128" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.182" class="phpdocumentor-element-found-in__source" data-line="182" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Resolves the full file path.</p>
@@ -1413,18 +2135,30 @@ already exists, it will be overwritten.</p>
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
+                                        <li><a href="classes/JG-Config-Config.html#toc-constants">Constants</a></li>
                                                             <li><a href="classes/JG-Config-Config.html#toc-properties">Properties</a></li>
                                                             <li><a href="classes/JG-Config-Config.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
+                            <li class="phpdocumentor-on-this-page-section__title">Constants</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/JG-Config-Config.html#constant_EXPIRE_NEVER">EXPIRE_NEVER</a></li>
+                                                    <li class=""><a href="classes/JG-Config-Config.html#constant_EXPIRE_ONE_DAY">EXPIRE_ONE_DAY</a></li>
+                                                    <li class=""><a href="classes/JG-Config-Config.html#constant_EXPIRE_ONE_MONTH">EXPIRE_ONE_MONTH</a></li>
+                                                    <li class=""><a href="classes/JG-Config-Config.html#constant_EXPIRE_ONE_WEEK">EXPIRE_ONE_WEEK</a></li>
+                                            </ul>
+                </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/JG-Config-Config.html#property_cacheLoaded">$cacheLoaded</a></li>
                                                     <li class=""><a href="classes/JG-Config-Config.html#property_config">$config</a></li>
                                                     <li class=""><a href="classes/JG-Config-Config.html#property_configPath">$configPath</a></li>
                                                     <li class=""><a href="classes/JG-Config-Config.html#property_flatten">$flatten</a></li>
                                                     <li class=""><a href="classes/JG-Config-Config.html#property_groups">$groups</a></li>
+                                                    <li class=""><a href="classes/JG-Config-Config.html#property_maxDepth">$maxDepth</a></li>
                                             </ul>
                 </li>
             
@@ -1435,12 +2169,19 @@ already exists, it will be overwritten.</p>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_add">add()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_clear">clear()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_delete">delete()</a></li>
+                                            <li class=""><a href="classes/JG-Config-Config.html#method_deleteCache">deleteCache()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_fetch">fetch()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_get">get()</a></li>
+                                            <li class=""><a href="classes/JG-Config-Config.html#method_getAll">getAll()</a></li>
+                                            <li class=""><a href="classes/JG-Config-Config.html#method_getGroups">getGroups()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_has">has()</a></li>
+                                            <li class=""><a href="classes/JG-Config-Config.html#method_isCacheLoaded">isCacheLoaded()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_load">load()</a></li>
+                                            <li class=""><a href="classes/JG-Config-Config.html#method_loadCache">loadCache()</a></li>
+                                            <li class=""><a href="classes/JG-Config-Config.html#method_saveCache">saveCache()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_setConfigPath">setConfigPath()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_setFlatten">setFlatten()</a></li>
+                                            <li class=""><a href="classes/JG-Config-Config.html#method_setMaxDepth">setMaxDepth()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_insert">insert()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_parse">parse()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_flattenArray">flattenArray()</a></li>

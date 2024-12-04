@@ -21,6 +21,16 @@ Search.appendIndex(
             "summary": "Enables\u0020or\u0020disables\u0020key\u0020flattening.",
             "url": "classes/JG-Config-Config.html#method_setFlatten"
         },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AsetMaxDepth\u0028\u0029",
+            "name": "setMaxDepth",
+            "summary": "Sets\u0020the\u0020maximum\u0020depth\u0020for\u0020nested\u0020configurations.",
+            "url": "classes/JG-Config-Config.html#method_setMaxDepth"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AisCacheLoaded\u0028\u0029",
+            "name": "isCacheLoaded",
+            "summary": "Checks\u0020if\u0020the\u0020configuration\u0020cache\u0020has\u0020been\u0020loaded.",
+            "url": "classes/JG-Config-Config.html#method_isCacheLoaded"
+        },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003AresolvePath\u0028\u0029",
             "name": "resolvePath",
             "summary": "Resolves\u0020the\u0020full\u0020file\u0020path.",
@@ -71,10 +81,55 @@ Search.appendIndex(
             "summary": "Deletes\u0020a\u0020configuration\u0020key\u0020or\u0020group.",
             "url": "classes/JG-Config-Config.html#method_delete"
         },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AgetAll\u0028\u0029",
+            "name": "getAll",
+            "summary": "Retrieves\u0020the\u0020entire\u0020configuration\u0020array.",
+            "url": "classes/JG-Config-Config.html#method_getAll"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AgetGroups\u0028\u0029",
+            "name": "getGroups",
+            "summary": "Retrieves\u0020all\u0020configuration\u0020groups.",
+            "url": "classes/JG-Config-Config.html#method_getGroups"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AsaveCache\u0028\u0029",
+            "name": "saveCache",
+            "summary": "Saves\u0020the\u0020configuration\u0020and\u0020groups\u0020data\u0020to\u0020a\u0020cache\u0020file.",
+            "url": "classes/JG-Config-Config.html#method_saveCache"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AloadCache\u0028\u0029",
+            "name": "loadCache",
+            "summary": "Loads\u0020the\u0020configuration\u0020and\u0020groups\u0020from\u0020a\u0020cache\u0020file.",
+            "url": "classes/JG-Config-Config.html#method_loadCache"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AdeleteCache\u0028\u0029",
+            "name": "deleteCache",
+            "summary": "Deletes\u0020a\u0020cache\u0020file.",
+            "url": "classes/JG-Config-Config.html#method_deleteCache"
+        },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003Aclear\u0028\u0029",
             "name": "clear",
             "summary": "Clears\u0020all\u0020configuration\u0020data.",
             "url": "classes/JG-Config-Config.html#method_clear"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AEXPIRE_NEVER",
+            "name": "EXPIRE_NEVER",
+            "summary": "Common\u0020expiration\u0020durations\u0020in\u0020seconds.",
+            "url": "classes/JG-Config-Config.html#constant_EXPIRE_NEVER"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AEXPIRE_ONE_DAY",
+            "name": "EXPIRE_ONE_DAY",
+            "summary": "",
+            "url": "classes/JG-Config-Config.html#constant_EXPIRE_ONE_DAY"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AEXPIRE_ONE_WEEK",
+            "name": "EXPIRE_ONE_WEEK",
+            "summary": "",
+            "url": "classes/JG-Config-Config.html#constant_EXPIRE_ONE_WEEK"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AEXPIRE_ONE_MONTH",
+            "name": "EXPIRE_ONE_MONTH",
+            "summary": "",
+            "url": "classes/JG-Config-Config.html#constant_EXPIRE_ONE_MONTH"
         },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003A\u0024configPath",
             "name": "configPath",
@@ -85,6 +140,16 @@ Search.appendIndex(
             "name": "flatten",
             "summary": "Whether\u0020configuration\u0020keys\u0020should\u0020be\u0020flattened.",
             "url": "classes/JG-Config-Config.html#property_flatten"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003A\u0024maxDepth",
+            "name": "maxDepth",
+            "summary": "Maximum\u0020allowed\u0020depth\u0020for\u0020nested\u0020configurations.",
+            "url": "classes/JG-Config-Config.html#property_maxDepth"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003A\u0024cacheLoaded",
+            "name": "cacheLoaded",
+            "summary": "Indicates\u0020whether\u0020the\u0020configuration\u0020cache\u0020has\u0020been\u0020loaded.",
+            "url": "classes/JG-Config-Config.html#property_cacheLoaded"
         },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003A\u0024groups",
             "name": "groups",
