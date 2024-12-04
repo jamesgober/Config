@@ -17,6 +17,7 @@ This file tracks all notable changes made to the project, including new features
 ## [Unreleased]
 
 ### Added
+### Added
 - **Maximum Depth Handling**:
   - Introduced a `private int $maxDepth` property to enforce a limit on the depth of nested configurations.
   - Default maximum depth is set to 10, ensuring stability and preventing performance issues with deeply nested structures.
@@ -39,9 +40,17 @@ This file tracks all notable changes made to the project, including new features
   - Enhanced `load` method to leverage caching and ensure more efficient and consistent configuration management.
 
 ### Fixed
-- Fixed potential issues with recursive operations in `flattenArray` by enforcing depth limits.
-- Resolved edge cases in `add` and `delete` methods for handling grouped configurations more effectively.
-- Addressed file handling robustness in caching methods (`saveCache`, `loadCache`, `deleteCache`) for better error management.
+- **Recursive Operations**:
+  - Fixed potential issues with recursive operations in `flattenArray` by enforcing depth limits.
+- **Grouped Configuration Handling**:
+  - Resolved edge cases in `add` and `delete` methods for handling grouped configurations more effectively.
+- **Caching Methods**:
+  - Addressed file handling robustness in caching methods (`saveCache`, `loadCache`, `deleteCache`) for better error management.
+
+
+
+
+
 
 
 &nbsp;
