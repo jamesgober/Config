@@ -87,8 +87,8 @@ This file tracks all notable changes made to the project, including new features
 <!-- 
 # UNRELEASED
 ----------------------------- -->
-[unreleased]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.3...HEAD
+[unreleased]: https://github.com/jamesgober/Config/compare/v1.0.0-RC3...HEAD
 
-[1.0.0-RC.3]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.2...v1.0.0-RC.3
+[1.0.0-RC.3]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.2...v1.0.0-RC3
 [1.0.0-RC.2]: https://github.com/jamesgober/Config/compare/v1.0.0-Rc.1...v1.0.0-RC.2
 [1.0.0-RC.1]: https://github.com/jamesgober/Config/releases/tag/v1.0.0-RC.1

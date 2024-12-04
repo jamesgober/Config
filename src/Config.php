@@ -61,6 +61,20 @@ class Config
     private bool $flatten = true;
 
     /**
+     * Maximum allowed depth for nested configurations.
+     *
+     * This property sets a limit on how deeply nested configurations can be
+     * processed by the flattening logic. Exceeding this depth will result in
+     * a `ConfigException` being thrown to prevent performance degradation and 
+     * manageability issues.
+     *
+     * Default: 10
+     *
+     * @var int Maximum depth for nested configurations.
+     */
+    private int $maxDepth = 10;
+
+    /**
      * Grouped configuration storage.
      *
      * Stores configurations by groups, allowing access by original
@@ -120,6 +134,21 @@ class Config
     }
 
     /**
+     * Sets the maximum depth for nested configurations.
+     *
+     * @param int $depth Maximum depth to allow.
+     * @return void
+     * @throws ConfigException If the depth is less than 1.
+     */
+    public function setMaxDepth(int $depth): void
+    {
+        if ($depth < 1) {
+            throw new ConfigException("Maximum depth must be at least 1.");
+        }
+        $this->maxDepth = $depth;
+    }
+
+    /**
      * Resolves the full file path.
      *
      * @param string|null $filePath The file path or filename (optional).
@@ -154,14 +183,31 @@ class Config
     /**
      * Flattens a multidimensional array into dot-notated keys and groups.
      *
+     * This method recursively processes a nested array, converting its keys 
+     * into dot-notated strings for flattened storage. It tracks the current 
+     * depth to ensure the nesting does not exceed the configured `$maxDepth`. 
+     * If the maximum depth is exceeded, a `ConfigException` is thrown.
+     *
      * @param array $data The input array to flatten.
-     * @param string $baseKey The base key for flattening.
+     * @param string $baseKey The base key for flattening, used for constructing
+     *                        dot-notated keys.
+     * @param int $currentDepth The current depth of the recursion, used to enforce
+     *                          the maximum depth constraint (default: 0).
+     * 
      * @return array An array containing two elements:
      *               - The first element is an associative array of flattened key-value pairs.
      *               - The second element is an associative array of flattened key mappings to original keys.
+     * 
+     * @throws ConfigException If the maximum depth for nested configurations is exceeded.
      */
-    private function flattenArray(array $data, string $baseKey): array
+    private function flattenArray(array $data, string $baseKey, int $currentDepth = 0): array
     {
+        if ($currentDepth > $this->maxDepth) {
+            throw new ConfigException(
+                "Maximum depth of {$this->maxDepth} exceeded while processing configuration."
+            );
+        }
+    
         $flattenedData = [];
         $groups = [];
     
@@ -169,15 +215,9 @@ class Config
             $fullKey = "{$baseKey}.{$key}";
     
             if (is_array($value)) {
-                [$nestedFlattened, $nestedGroups] = $this->flattenArray($value, $fullKey);
-    
-                // Directly merge instead of using array_merge
-                foreach ($nestedFlattened as $nestedKey => $nestedValue) {
-                    $flattenedData[$nestedKey] = $nestedValue;
-                }
-                foreach ($nestedGroups as $nestedKey => $originalKey) {
-                    $groups[$nestedKey] = $originalKey;
-                }
+                [$nestedFlattened, $nestedGroups] = $this->flattenArray($value, $fullKey, $currentDepth + 1);
+                $flattenedData = array_merge($flattenedData, $nestedFlattened);
+                $groups = array_merge($groups, $nestedGroups);
             } else {
                 $flattenedData[$fullKey] = $value;
                 $groups[$fullKey] = $key;
