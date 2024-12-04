@@ -136,4 +136,72 @@ class ConfigTest extends TestCase
         $config = new Config(__DIR__ . '/config');
         $config->fetch('nonexistent.json');
     }
+
+    public function testSaveCache(): void
+    {
+        $config = new Config();
+        $config->add('app.debug', true);
+        $config->add('database.host', 'localhost');
+
+        $filePath = __DIR__ . '/cache.json';
+        $this->assertTrue($config->saveCache($filePath, Config::EXPIRE_ONE_DAY));
+        $this->assertFileExists($filePath);
+
+        // Cleanup
+        unlink($filePath);
+    }
+
+    public function testLoadCache(): void
+    {
+        $config = new Config();
+        $filePath = __DIR__ . '/cache.json';
+
+        // Prepare cache data
+        $cacheData = [
+            'config' => ['app.debug' => true, 'database.host' => 'localhost'],
+            'groups' => ['app' => ['app.debug'], 'database' => ['database.host']],
+            'expires' => time() + 3600,
+        ];
+        file_put_contents($filePath, json_encode($cacheData));
+
+        $this->assertTrue($config->loadCache($filePath));
+        $this->assertTrue($config->has('app.debug'));
+        $this->assertEquals('localhost', $config->get('database.host'));
+
+        // Cleanup
+        unlink($filePath);
+    }
+
+    public function testLoadExpiredCache(): void
+    {
+        $config = new Config();
+        $filePath = __DIR__ . '/cache.json';
+
+        // Prepare expired cache data
+        $cacheData = [
+            'config' => ['app.debug' => true, 'database.host' => 'localhost'],
+            'groups' => ['app' => ['app.debug'], 'database' => ['database.host']],
+            'expires' => time() - 3600,
+        ];
+        file_put_contents($filePath, json_encode($cacheData));
+
+        $this->assertFalse($config->loadCache($filePath));
+        $this->assertFileDoesNotExist($filePath); // File should be deleted
+
+        // Cleanup
+        @unlink($filePath);
+    }
+
+    public function testDeleteCache(): void
+    {
+        $config = new Config();
+        $filePath = __DIR__ . '/cache.json';
+
+        // Create a dummy cache file
+        file_put_contents($filePath, json_encode(['dummy' => true]));
+
+        $this->assertFileExists($filePath);
+        $this->assertTrue($config->deleteCache($filePath));
+        $this->assertFileDoesNotExist($filePath);
+    }
 }
