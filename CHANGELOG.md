@@ -32,6 +32,7 @@ This file tracks all notable changes made to the project, including new features
 - Introduced the `flattenArray` method in `Config.php` to handle flattening of multidimensional arrays into dot-notated structures.
 - Added support in the `add` method to dynamically update grouped configurations while maintaining consistency with flattened keys.
 - Included support for deleting grouped keys using the `delete` method, ensuring proper cleanup of both configuration and group data.
+- Created YmlParser.php class.
 
 ### Updated
 - Refactored the `load` method in `Config.php` to integrate seamlessly with the `flattenArray` method, ensuring that flattened and non-flattened configurations are handled consistently.
