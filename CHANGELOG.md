@@ -13,12 +13,22 @@ This file tracks all notable changes made to the project, including new features
 - **Security**: In case of vulnerabilities.
 
 ---
-<!-- 
+<!-- -->
 ## [Unreleased]
+### Added
+- **Maximum Depth Handling**:
+  - Introduced a `private int $maxDepth` property to enforce a limit on the depth of nested configurations.
+  - Default maximum depth is set to 10, ensuring stability and preventing performance issues with deeply nested structures.
+- **Enhanced `flattenArray` Method**:
+  - Added `$currentDepth` parameter to the `flattenArray` method for tracking and enforcing depth limits during recursive operations.
 
+### Updated
+- **`flattenArray` Method**:
+  - Improved functionality to handle deeply nested arrays safely by enforcing the `$maxDepth` limit.
+  - Throws `ConfigException` if the maximum depth is exceeded.
+- **PHPDoc Improvements**:
+  - Added detailed PHPDoc comments for `private int $maxDepth` and the `flattenArray` method to clarify functionality and usage.
 
-
--->
 
 &nbsp;
 
