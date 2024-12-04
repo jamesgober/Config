@@ -4,7 +4,6 @@
 
 This file tracks all notable changes made to the project, including new features, improvements, and bug fixes. This changelog follows the principles of [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), ensuring clarity and consistency. Versioning adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-
 - **Added**: For new features or functionality.
 - **Changed**: For changes in existing functionality.
 - **Deprecated**: For soon-to-be removed features.
@@ -13,10 +12,18 @@ This file tracks all notable changes made to the project, including new features
 - **Security**: In case of vulnerabilities.
 
 ---
-<!-- -->
+<!-- 
 ## [Unreleased]
+-->
 
-### Added
+
+
+&nbsp;
+
+<!-- 
+# 
+----------------------------- -->
+## [1.0.0-RC.4] - 2024-12-03
 ### Added
 - **Maximum Depth Handling**:
   - Introduced a `private int $maxDepth` property to enforce a limit on the depth of nested configurations.
@@ -46,11 +53,6 @@ This file tracks all notable changes made to the project, including new features
   - Resolved edge cases in `add` and `delete` methods for handling grouped configurations more effectively.
 - **Caching Methods**:
   - Addressed file handling robustness in caching methods (`saveCache`, `loadCache`, `deleteCache`) for better error management.
-
-
-
-
-
 
 
 &nbsp;
@@ -120,8 +122,15 @@ This file tracks all notable changes made to the project, including new features
 <!-- 
 # UNRELEASED
 ----------------------------- -->
-[unreleased]: https://github.com/jamesgober/Config/compare/v1.0.0-RC3...HEAD
+[unreleased]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.4...HEAD
+<!-- 
+# VERSIONS
+----------------------------- -->
 
+<!-- 
+# PRE-RELEASE
+----------------------------- -->
+[1.0.0-RC.4]: https://github.com/jamesgober/Config/compare/v1.0.0-RC3...v1.0.0-RC.4
 [1.0.0-RC.3]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.2...v1.0.0-RC3
 [1.0.0-RC.2]: https://github.com/jamesgober/Config/compare/v1.0.0-Rc.1...v1.0.0-RC.2
 [1.0.0-RC.1]: https://github.com/jamesgober/Config/releases/tag/v1.0.0-RC.1
