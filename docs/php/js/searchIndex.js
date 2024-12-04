@@ -31,6 +31,11 @@ Search.appendIndex(
             "summary": "Inserts\u0020configuration\u0020data\u0020into\u0020the\u0020manager.",
             "url": "classes/JG-Config-Config.html#method_insert"
         },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AflattenArray\u0028\u0029",
+            "name": "flattenArray",
+            "summary": "Flattens\u0020a\u0020multidimensional\u0020array\u0020into\u0020dot\u002Dnotated\u0020keys\u0020and\u0020groups.",
+            "url": "classes/JG-Config-Config.html#method_flattenArray"
+        },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003Aload\u0028\u0029",
             "name": "load",
             "summary": "Loads\u0020configuration\u0020data\u0020from\u0020a\u0020file.",

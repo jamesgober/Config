@@ -28,13 +28,22 @@ This file tracks all notable changes made to the project, including new features
 ## [1.0.0-RC.3] - 2024-12-03
 
 ### Added
-- Added support for flattened groups in the `has` method of the `Config.php` file, enhancing compatibility and usability with grouped configurations.
-- Added support for flattened groups in the `add` method of the `Config.php` file, allowing seamless updates and integration with grouped configuration keys.
+- Added support for managing flattened configurations in the `has` method of `Config.php`, enabling checks for deeply nested and dot-notated keys.
+- Introduced the `flattenArray` method in `Config.php` to handle flattening of multidimensional arrays into dot-notated structures.
+- Added support in the `add` method to dynamically update grouped configurations while maintaining consistency with flattened keys.
+- Included support for deleting grouped keys using the `delete` method, ensuring proper cleanup of both configuration and group data.
 
 ### Updated
-- Updated the `load` method in the `Config.php` file to handle overwrite behavior during key conflicts, ensuring a consistent and reliable configuration state.
-- Improved the `add` method in the `Config.php` file with validation to ensure the specified group exists before performing operations.
-- Changed the access level of the `insert` method in the `Config.php` file to "**protected**", limiting its usage to internal operations and improving encapsulation.
+- Refactored the `load` method in `Config.php` to integrate seamlessly with the `flattenArray` method, ensuring that flattened and non-flattened configurations are handled consistently.
+- Improved the `add` method in `Config.php` to validate group existence and dynamically create groups as needed.
+- Enhanced the `delete` method in `Config.php` to cleanly remove grouped keys while avoiding redundant loops.
+- Revised test cases in `ConfigTest.php` to accurately reflect changes in flattened and non-flattened key behavior.
+- Adjusted `ConfigTest.php` to assert correct handling of group deletion and flattened configurations.
+
+### Fixed
+- Fixed `testLoadValidFile` in `ConfigTest.php` to correctly assert flattened keys with the appropriate prefix.
+- Fixed edge cases in the `add` method to avoid inconsistent state when adding non-dot-notated keys after groups have been initialized.
+- Fixed potential issues in the `flattenArray` method where redundant merging could occur in nested arrays.
 
 &nbsp;
 

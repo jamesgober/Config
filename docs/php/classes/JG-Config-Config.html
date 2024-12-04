@@ -285,6 +285,13 @@ to extend via custom parsers.</p>
 <dd>Parses a configuration file.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a class="" href="classes/JG-Config-Config.html#method_flattenArray">flattenArray()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Flattens a multidimensional array into dot-notated keys and groups.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a class="" href="classes/JG-Config-Config.html#method_resolvePath">resolvePath()</a>
     <span>
                                 &nbsp;: string|null    </span>
@@ -541,9 +548,9 @@ source filename or unique key.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">267</span>
+    <span class="phpdocumentor-element-found-in__line">295</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.267" class="phpdocumentor-element-found-in__source" data-line="267" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.295" class="phpdocumentor-element-found-in__source" data-line="295" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Adds or updates a configuration value.</p>
@@ -556,8 +563,7 @@ source filename or unique key.</p>
         </div>
     
         <section class="phpdocumentor-description"><p>If the key contains dots, indicating a grouped or flattened list,
-the method checks if the key exists in the grouped configurations and updates it.
-Otherwise, it adds the key-value pair to the main configuration array.</p>
+the method ensures the group and config data are updated accordingly.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -602,9 +608,9 @@ Otherwise, it adds the key-value pair to the main configuration array.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">331</span>
+    <span class="phpdocumentor-element-found-in__line">353</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.331" class="phpdocumentor-element-found-in__source" data-line="331" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.353" class="phpdocumentor-element-found-in__source" data-line="353" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Clears all configuration data.</p>
@@ -638,9 +644,9 @@ Otherwise, it adds the key-value pair to the main configuration array.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">309</span>
+    <span class="phpdocumentor-element-found-in__line">333</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.309" class="phpdocumentor-element-found-in__source" data-line="309" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.333" class="phpdocumentor-element-found-in__source" data-line="333" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Deletes a configuration key or group.</p>
@@ -690,9 +696,9 @@ is deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">231</span>
+    <span class="phpdocumentor-element-found-in__line">260</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.231" class="phpdocumentor-element-found-in__source" data-line="231" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.260" class="phpdocumentor-element-found-in__source" data-line="260" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Retrieves configuration from a file.</p>
@@ -746,9 +752,9 @@ is deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">294</span>
+    <span class="phpdocumentor-element-found-in__line">318</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.294" class="phpdocumentor-element-found-in__source" data-line="294" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.318" class="phpdocumentor-element-found-in__source" data-line="318" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Retrieves a configuration value.</p>
@@ -811,9 +817,9 @@ is deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">245</span>
+    <span class="phpdocumentor-element-found-in__line">274</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.245" class="phpdocumentor-element-found-in__source" data-line="245" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.274" class="phpdocumentor-element-found-in__source" data-line="274" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Checks if a specific configuration key exists.</p>
@@ -870,9 +876,9 @@ If not, it then checks whether the key corresponds to a group in the grouped con
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">166</span>
+    <span class="phpdocumentor-element-found-in__line">202</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.166" class="phpdocumentor-element-found-in__source" data-line="166" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.202" class="phpdocumentor-element-found-in__source" data-line="202" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Loads configuration data from a file.</p>
@@ -1118,9 +1124,9 @@ already exists, it will be overwritten.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">209</span>
+    <span class="phpdocumentor-element-found-in__line">238</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.209" class="phpdocumentor-element-found-in__source" data-line="209" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.238" class="phpdocumentor-element-found-in__source" data-line="238" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Parses a configuration file.</p>
@@ -1172,6 +1178,75 @@ already exists, it will be overwritten.</p>
         <span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;|null</span>
                     &mdash;
                 <section class="phpdocumentor-description"><p>Parsed configuration data, or null if parsing fails.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_flattenArray">
+        flattenArray()
+        <a href="classes/JG-Config-Config.html#method_flattenArray" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">163</span>
+
+            <a href="classes/JG-Config-Config.html#source-view.163" class="phpdocumentor-element-found-in__source" data-line="163" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Flattens a multidimensional array into dot-notated keys and groups.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">flattenArray</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$baseKey</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The input array to flatten.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$baseKey</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The base key for flattening.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>An array containing two elements:</p>
+<ul>
+<li>The first element is an associative array of flattened key-value pairs.</li>
+<li>The second element is an associative array of flattened key mappings to original keys.</li>
+</ul>
 </section>
 
             </section>
@@ -1368,6 +1443,7 @@ already exists, it will be overwritten.</p>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_setFlatten">setFlatten()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_insert">insert()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_parse">parse()</a></li>
+                                            <li class=""><a href="classes/JG-Config-Config.html#method_flattenArray">flattenArray()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_resolvePath">resolvePath()</a></li>
                                     </ul>
             </li>

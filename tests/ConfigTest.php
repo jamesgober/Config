@@ -42,21 +42,23 @@ class ConfigTest extends TestCase
 
     public function testLoadValidFile(): void
     {
-        $config = new Config(__DIR__ . '/config');
+        $config = new Config(__DIR__ . '/config', true);
         $config->load('config.json');
-
-        $this->assertTrue($config->has('database.host'));
-        $this->assertEquals('localhost', $config->get('database.host'));
+    
+        $this->assertTrue($config->has('config.database.host'));
+        $this->assertEquals('localhost', $config->get('config.database.host'));
     }
 
     public function testLoadValidFileWithFlattening(): void
     {
         $config = new Config(__DIR__ . '/config');
-        $config->setFlatten(true);
+        $config->setFlatten(false); // Disable flattening
         $config->load('config.json');
-
-        $this->assertTrue($config->has('config.database.host'));
-        $this->assertEquals('localhost', $config->get('config.database.host'));
+    
+        // Assert non-flattened keys
+        $this->assertTrue($config->has('database'));
+        $this->assertArrayHasKey('host', $config->get('database'));
+        $this->assertEquals('localhost', $config->get('database')['host']);
     }
 
     public function testLoadInvalidFile(): void
@@ -99,11 +101,12 @@ class ConfigTest extends TestCase
         $config = new Config();
         $config->add('app.debug', true);
         $config->add('app.cache', 'enabled');
-
+    
         $config->delete('app');
-
+    
         $this->assertFalse($config->has('app.debug'));
         $this->assertFalse($config->has('app.cache'));
+        $this->assertFalse($config->has('app'));
     }
 
     public function testClear(): void

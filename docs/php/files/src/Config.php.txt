@@ -152,6 +152,42 @@ class Config
     }
 
     /**
+     * Flattens a multidimensional array into dot-notated keys and groups.
+     *
+     * @param array $data The input array to flatten.
+     * @param string $baseKey The base key for flattening.
+     * @return array An array containing two elements:
+     *               - The first element is an associative array of flattened key-value pairs.
+     *               - The second element is an associative array of flattened key mappings to original keys.
+     */
+    private function flattenArray(array $data, string $baseKey): array
+    {
+        $flattenedData = [];
+        $groups = [];
+    
+        foreach ($data as $key => $value) {
+            $fullKey = "{$baseKey}.{$key}";
+    
+            if (is_array($value)) {
+                [$nestedFlattened, $nestedGroups] = $this->flattenArray($value, $fullKey);
+    
+                // Directly merge instead of using array_merge
+                foreach ($nestedFlattened as $nestedKey => $nestedValue) {
+                    $flattenedData[$nestedKey] = $nestedValue;
+                }
+                foreach ($nestedGroups as $nestedKey => $originalKey) {
+                    $groups[$nestedKey] = $originalKey;
+                }
+            } else {
+                $flattenedData[$fullKey] = $value;
+                $groups[$fullKey] = $key;
+            }
+        }
+    
+        return [$flattenedData, $groups];
+    }
+
+    /**
      * Loads configuration data from a file.
      *
      * Reads the specified file, parses its contents, and merges 
@@ -169,32 +205,25 @@ class Config
         if (!$filePath || !is_file($filePath)) {
             throw new ConfigException("Configuration file not found: {$filePath}");
         }
-
+    
         // Parse the configuration file
         $parsedData = $this->parse($filePath);
         if ($parsedData === null) {
             throw new ConfigException("Failed to parse configuration file: {$filePath}");
         }
-
+    
         if ($this->flatten) {
-            // Flatten keys by grouping them under the file's base name
+            // Flatten the configuration data
             $baseName = strtolower(preg_replace('/\.[^.]+$/', '', basename($filePath)));
-            $groupedData = [];
-            $groups = [];
-
-            foreach ($parsedData as $key => $value) {
-                $groupedKey = "{$baseName}.{$key}";
-                $groupedData[$groupedKey] = $value;
-                $groups[$key] = $groupedKey;
-            }
-
-            // Insert the flattened data and overwrite existing keys
-            $this->insert($groupedData, [$baseName => $groups]);
-        } else {
-            // Directly merge and overwrite existing keys without flattening
-            $this->insert($parsedData);
+            [$flattenedData, $groups] = $this->flattenArray($parsedData, $baseName);
+    
+            // Insert the flattened data
+            $this->insert($flattenedData, [$baseName => $groups]);
+            return true;
         }
 
+        // Insert non-flattened data
+        $this->insert($parsedData);
         return true;
     }
 
@@ -257,8 +286,7 @@ class Config
      * Adds or updates a configuration value.
      *
      * If the key contains dots, indicating a grouped or flattened list,
-     * the method checks if the key exists in the grouped configurations and updates it.
-     * Otherwise, it adds the key-value pair to the main configuration array.
+     * the method ensures the group and config data are updated accordingly.
      *
      * @param string $key The configuration key (supports dot notation for groups).
      * @param mixed $value The configuration value.
@@ -266,22 +294,18 @@ class Config
      */
     public function add(string $key, mixed $value): void
     {
-        // Check if the key has a dot notation
+        // Add to config
+        $this->config[$key] = $value;
+
+        // If the key is dot-notated, update the group
         if (str_contains($key, '.')) {
             $parts = explode('.', $key);
-            $group = array_shift($parts); // Extract the group name
-            $subKey = implode('.', $parts); // The remaining key within the group
+            $group = array_shift($parts);
+            $subKey = implode('.', $parts);
 
-            // If the group exists, update the specific subKey in the group
-            if (array_key_exists($group, $this->groups) && isset($this->groups[$group][$subKey])) {
-                $fullKey = $this->groups[$group][$subKey];
-                $this->config[$fullKey] = $value;
-                return;
-            }
+            // Ensure the group exists
+            $this->groups[$group][$key] = $subKey;
         }
-
-        // If not part of a group, add/update as a normal key
-        $this->config[$key] = $value;
     }
 
     /**
@@ -308,18 +332,16 @@ class Config
      */
     public function delete(string $key): void
     {
-        // Check if the key exists as a group
         if (isset($this->groups[$key])) {
-            // Iterate over the group's keys and remove them from the config array
-            foreach ($this->groups[$key] as $groupKey) {
-                unset($this->config[$groupKey]);
+            // Delete all group keys from config
+            foreach ($this->groups[$key] as $fullKey => $subKey) {
+                unset($this->config[$fullKey]);
             }
-            // Remove the group entry itself
             unset($this->groups[$key]);
             return;
         }
-
-        // If it's not a group, delete it directly from the config array
+    
+        // Delete single key
         unset($this->config[$key]);
     }
 
