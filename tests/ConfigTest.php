@@ -40,26 +40,31 @@ class ConfigTest extends TestCase
         $this->assertFalse($property->getValue($config));
     }
 
-    public function testInsert(): void
+    public function testLoadValidFile(): void
     {
-        $config = new Config();
+        $config = new Config(__DIR__ . '/config');
+        $config->load('config.json');
 
-        $data = [
-            'app.debug' => true,
-            'app.cache' => null,
-        ];
+        $this->assertTrue($config->has('database.host'));
+        $this->assertEquals('localhost', $config->get('database.host'));
+    }
 
-        $groups = [
-            'app' => [
-                'debug' => 'app.debug',
-                'cache' => 'app.cache',
-            ],
-        ];
+    public function testLoadValidFileWithFlattening(): void
+    {
+        $config = new Config(__DIR__ . '/config');
+        $config->setFlatten(true);
+        $config->load('config.json');
 
-        $config->insert($data, $groups);
+        $this->assertTrue($config->has('config.database.host'));
+        $this->assertEquals('localhost', $config->get('config.database.host'));
+    }
 
-        $this->assertTrue($config->has('app.debug'));
-        $this->assertNull($config->get('app.cache'));
+    public function testLoadInvalidFile(): void
+    {
+        $this->expectException(ConfigException::class);
+
+        $config = new Config(__DIR__ . '/config');
+        $config->load('nonexistent.json');
     }
 
     public function testAddAndGet(): void
@@ -70,14 +75,35 @@ class ConfigTest extends TestCase
         $this->assertEquals('localhost', $config->get('database.host'));
     }
 
-    public function testDelete(): void
+    public function testAddToGroup(): void
     {
         $config = new Config();
+        $config->add('app.debug', true);
+        $config->add('app.cache', 'enabled');
 
+        $this->assertTrue($config->get('app.debug'));
+        $this->assertEquals('enabled', $config->get('app.cache'));
+    }
+
+    public function testDeleteKey(): void
+    {
+        $config = new Config();
         $config->add('app.debug', true);
         $config->delete('app.debug');
 
         $this->assertFalse($config->has('app.debug'));
+    }
+
+    public function testDeleteGroup(): void
+    {
+        $config = new Config();
+        $config->add('app.debug', true);
+        $config->add('app.cache', 'enabled');
+
+        $config->delete('app');
+
+        $this->assertFalse($config->has('app.debug'));
+        $this->assertFalse($config->has('app.cache'));
     }
 
     public function testClear(): void
@@ -85,9 +111,11 @@ class ConfigTest extends TestCase
         $config = new Config();
 
         $config->add('app.debug', true);
+        $config->add('database.host', 'localhost');
         $config->clear();
 
         $this->assertFalse($config->has('app.debug'));
+        $this->assertFalse($config->has('database.host'));
     }
 
     public function testFetch(): void
