@@ -69,10 +69,10 @@ Config Data
 */
 
 // Delete single value
-$config->add('app.version'); // app.version deleted
+$config->delete('app.version'); // app.version deleted
 
 // Delete entire group
-$config->add('app'); // app.name, app.debug... deleted
+$config->delete('app'); // app.name, app.debug... deleted
 ```
 
 ### Custom Parsers
