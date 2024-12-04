@@ -258,7 +258,8 @@ class Config
      * Reads the specified file, parses its contents, and merges 
      * the data into the existing configuration. When flattening is enabled,
      * keys are grouped by the file's base name to create unique keys. If a key 
-     * already exists, it will be overwritten.
+     * already exists, it will be overwritten. If the cache is already loaded,
+     * the method will skip further processing.
      *
      * @param string|null $filePath Absolute or relative path to the file.
      * @return bool True if the configuration was successfully loaded.
@@ -266,6 +267,11 @@ class Config
      */
     public function load(?string $filePath = null): bool
     {
+        // Skip if cache is already loaded
+        if ($this->isCacheLoaded()) {
+            return true;
+        }
+
         $filePath = $this->resolvePath($filePath);
         if (!$filePath || !is_file($filePath)) {
             throw new ConfigException("Configuration file not found: {$filePath}");
