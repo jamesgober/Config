@@ -47,6 +47,14 @@ use \JG\Config\Exceptions\ConfigException;
 class Config
 {
     /**
+     * Common expiration durations in seconds.
+     */
+    public const EXPIRE_NEVER = 0;
+    public const EXPIRE_ONE_DAY = 86400;
+    public const EXPIRE_ONE_WEEK = 604800;
+    public const EXPIRE_ONE_MONTH = 2592000;
+
+    /**
      * Default configuration directory path.
      *
      * @var string|null
@@ -73,6 +81,13 @@ class Config
      * @var int Maximum depth for nested configurations.
      */
     private int $maxDepth = 10;
+
+    /**
+     * Indicates whether the configuration cache has been loaded.
+     *
+     * @var bool
+     */
+    private bool $cacheLoaded = false;
 
     /**
      * Grouped configuration storage.
@@ -146,6 +161,16 @@ class Config
             throw new ConfigException("Maximum depth must be at least 1.");
         }
         $this->maxDepth = $depth;
+    }
+
+    /**
+     * Checks if the configuration cache has been loaded.
+     *
+     * @return bool True if the cache has been loaded, false otherwise.
+     */
+    public function isCacheLoaded(): bool
+    {
+        return $this->cacheLoaded;
     }
 
     /**
@@ -383,6 +408,100 @@ class Config
     
         // Delete single key
         unset($this->config[$key]);
+    }
+
+    /**
+     * Retrieves the entire configuration array.
+     *
+     * @return array<string, mixed> The configuration array.
+     */
+    public function getAll(): array
+    {
+        return $this->config;
+    }
+
+    /**
+     * Retrieves all configuration groups.
+     *
+     * @return array<string, array<string, string>> The groups array.
+     */
+    public function getGroups(): array
+    {
+        return $this->groups;
+    }
+
+    /**
+     * Saves the configuration and groups data to a cache file.
+     *
+     * @param string $filePath The file path to save the cache.
+     * @param int $expires Expiration time in seconds (0 for no expiration).
+     * @return bool True if the cache was saved successfully, false otherwise.
+     */
+    public function saveCache(string $filePath, int $expires = 0): bool
+    {
+        // Check if the file is writable or can be created
+        $dir = dirname($filePath);
+        if (!is_dir($dir) && !mkdir($dir, 0755, true)) {
+            return false;
+        }
+        if (is_file($filePath) && !is_writable($filePath)) {
+            return false;
+        }
+
+        $cache = [
+            'config' => $this->config,
+            'groups' => $this->groups,
+            'expires' => $expires > 0 ? time() + $expires : false,
+        ];
+
+        $json = json_encode($cache, JSON_PRETTY_PRINT | JSON_THROW_ON_ERROR);
+
+        return file_put_contents($filePath, $json) !== false;
+    }
+
+    /**
+     * Loads the configuration and groups from a cache file.
+     *
+     * @param string $filePath The file path of the cache.
+     * @return bool True if the cache was loaded successfully, false otherwise.
+     */
+    public function loadCache(string $filePath): bool
+    {
+        if ($this->cacheLoaded) {
+            return true;
+        }
+
+        if (!is_file($filePath) || !is_readable($filePath)) {
+            return false;
+        }
+
+        $data = json_decode(file_get_contents($filePath), true, 512, JSON_THROW_ON_ERROR);
+
+        if (!is_array($data) || !isset($data['config'], $data['groups'], $data['expires'])) {
+            return false;
+        }
+
+        if ($data['expires'] && time() > $data['expires']) {
+            $this->deleteCache($filePath);
+            return false;
+        }
+
+        $this->config = $data['config'];
+        $this->groups = $data['groups'];
+        $this->cacheLoaded = true;
+
+        return true;
+    }
+
+    /**
+     * Deletes a cache file.
+     *
+     * @param string $filePath The file path of the cache to delete.
+     * @return bool True if the cache was deleted successfully, false otherwise.
+     */
+    public function deleteCache(string $filePath): bool
+    {
+        return is_file($filePath) && unlink($filePath);
     }
 
     /**
