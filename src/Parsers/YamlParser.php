@@ -8,6 +8,7 @@
  *
  * @package    JG\Config\Parsers
  * @version    1.0.0
+ * @since      1.0.0
  * @author     James Gober <code@jamesgober.com>
  * @link       https://github.com/jamesgober/Config
  * @license    MIT License
