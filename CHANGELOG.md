@@ -15,12 +15,19 @@ This file tracks all notable changes made to the project, including new features
 ---
 <!-- -->
 ## [Unreleased]
+
 ### Added
 - **Maximum Depth Handling**:
   - Introduced a `private int $maxDepth` property to enforce a limit on the depth of nested configurations.
   - Default maximum depth is set to 10, ensuring stability and preventing performance issues with deeply nested structures.
-- **Enhanced `flattenArray` Method**:
-  - Added `$currentDepth` parameter to the `flattenArray` method for tracking and enforcing depth limits during recursive operations.
+- **Caching Features**:
+  - Added `saveCache` method for saving the current configuration, groups, and expiration timestamp to a cache file.
+  - Added `loadCache` method for loading configuration data from a cache file. Includes expiration validation.
+  - Added `deleteCache` method for removing a specified cache file.
+  - Added `isCacheLoaded` method to check if a valid cache has been successfully loaded.
+- **Getter Methods**:
+  - Added `getAll` method to retrieve the entire configuration array.
+  - Added `getGroups` method to retrieve all grouped configurations.
 
 ### Updated
 - **`flattenArray` Method**:
@@ -28,6 +35,13 @@ This file tracks all notable changes made to the project, including new features
   - Throws `ConfigException` if the maximum depth is exceeded.
 - **PHPDoc Improvements**:
   - Added detailed PHPDoc comments for `private int $maxDepth` and the `flattenArray` method to clarify functionality and usage.
+- **Configuration Loading**:
+  - Enhanced `load` method to leverage caching and ensure more efficient and consistent configuration management.
+
+### Fixed
+- Fixed potential issues with recursive operations in `flattenArray` by enforcing depth limits.
+- Resolved edge cases in `add` and `delete` methods for handling grouped configurations more effectively.
+- Addressed file handling robustness in caching methods (`saveCache`, `loadCache`, `deleteCache`) for better error management.
 
 
 &nbsp;
