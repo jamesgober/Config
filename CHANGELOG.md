@@ -13,12 +13,26 @@ This file tracks all notable changes made to the project, including new features
 - **Security**: In case of vulnerabilities.
 
 ---
-<!--
+<!-- 
 ## [Unreleased]
 
-### Added
-- Created a paragraph with a link to the `CHANGELOG` in the `README.md` file.
+
+&nbsp;
 -->
+
+<!-- 
+# 
+----------------------------- -->
+## [1.0.0-RC.3] - 2024-12-03
+
+### Added
+- Added support for flattened groups in the `has` method of the `Config.php` file, enhancing compatibility and usability with grouped configurations.
+- Added support for flattened groups in the `add` method of the `Config.php` file, allowing seamless updates and integration with grouped configuration keys.
+
+### Updated
+- Updated the `load` method in the `Config.php` file to handle overwrite behavior during key conflicts, ensuring a consistent and reliable configuration state.
+- Improved the `add` method in the `Config.php` file with validation to ensure the specified group exists before performing operations.
+- Changed the access level of the `insert` method in the `Config.php` file to "**protected**", limiting its usage to internal operations and improving encapsulation.
 
 &nbsp;
 
@@ -61,7 +75,8 @@ This file tracks all notable changes made to the project, including new features
 <!-- 
 # UNRELEASED
 ----------------------------- -->
-[unreleased]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.1...HEAD
+[unreleased]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.3...HEAD
 
-[1.0.0-RC.2]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.1...v1.0.0-RC.2
+[1.0.0-RC.3]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.2...v1.0.0-RC.3
+[1.0.0-RC.2]: https://github.com/jamesgober/Config/compare/v1.0.0-Rc.1...v1.0.0-RC.2
 [1.0.0-RC.1]: https://github.com/jamesgober/Config/releases/tag/v1.0.0-RC.1

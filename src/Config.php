@@ -23,10 +23,15 @@ use \ltrim;
 use \rtrim;
 use \is_dir;
 use \strtok;
+use \explode;
+use \implode;
 use \is_file;
 use \strtolower;
 use \array_merge;
+use \array_shift;
 use \preg_replace;
+use \str_contains;
+use \array_key_exists;
 use \JG\Config\ConfigParserFactory;
 use \JG\Config\Exceptions\ConfigException;
 
@@ -140,7 +145,7 @@ class Config
      * @param array<string, array<string, string>> $groups Configuration groups.
      * @return void
      */
-    public function insert(array $config = [], array $groups = []): void
+    protected function insert(array $config = [], array $groups = []): void
     {
         $this->config = array_merge($this->config, $config);
         $this->groups = array_merge($this->groups, $groups);
@@ -150,8 +155,9 @@ class Config
      * Loads configuration data from a file.
      *
      * Reads the specified file, parses its contents, and merges 
-     * the data into the existing configuration. Optionally, groups
-     * configuration keys by the file's base name to create unique keys.
+     * the data into the existing configuration. When flattening is enabled,
+     * keys are grouped by the file's base name to create unique keys. If a key 
+     * already exists, it will be overwritten.
      *
      * @param string|null $filePath Absolute or relative path to the file.
      * @return bool True if the configuration was successfully loaded.
@@ -170,8 +176,8 @@ class Config
             throw new ConfigException("Failed to parse configuration file: {$filePath}");
         }
 
-        // If flattening is enabled, group keys by the file's base name
         if ($this->flatten) {
+            // Flatten keys by grouping them under the file's base name
             $baseName = strtolower(preg_replace('/\.[^.]+$/', '', basename($filePath)));
             $groupedData = [];
             $groups = [];
@@ -182,12 +188,13 @@ class Config
                 $groups[$key] = $groupedKey;
             }
 
+            // Insert the flattened data and overwrite existing keys
             $this->insert($groupedData, [$baseName => $groups]);
-            return true;
+        } else {
+            // Directly merge and overwrite existing keys without flattening
+            $this->insert($parsedData);
         }
 
-        // Insert directly if not flattened
-        $this->insert($parsedData);
         return true;
     }
 
@@ -229,23 +236,51 @@ class Config
     /**
      * Checks if a specific configuration key exists.
      *
+     * This method first checks if the key exists in the main configuration.
+     * If not, it then checks whether the key corresponds to a group in the grouped configurations.
+     *
      * @param string $key The configuration key to check.
-     * @return bool True if the key exists; otherwise, false.
+     * @return bool True if the key or group exists; otherwise, false.
      */
     public function has(string $key): bool
     {
-        return array_key_exists($key, $this->config);
+        // Check if the key exists in the main configuration array
+        if (array_key_exists($key, $this->config)) {
+            return true;
+        }
+
+        // Check if the key exists as a group
+        return array_key_exists($key, $this->groups);
     }
 
     /**
      * Adds or updates a configuration value.
      *
-     * @param string $key The configuration key.
+     * If the key contains dots, indicating a grouped or flattened list,
+     * the method checks if the key exists in the grouped configurations and updates it.
+     * Otherwise, it adds the key-value pair to the main configuration array.
+     *
+     * @param string $key The configuration key (supports dot notation for groups).
      * @param mixed $value The configuration value.
      * @return void
      */
     public function add(string $key, mixed $value): void
     {
+        // Check if the key has a dot notation
+        if (str_contains($key, '.')) {
+            $parts = explode('.', $key);
+            $group = array_shift($parts); // Extract the group name
+            $subKey = implode('.', $parts); // The remaining key within the group
+
+            // If the group exists, update the specific subKey in the group
+            if (array_key_exists($group, $this->groups) && isset($this->groups[$group][$subKey])) {
+                $fullKey = $this->groups[$group][$subKey];
+                $this->config[$fullKey] = $value;
+                return;
+            }
+        }
+
+        // If not part of a group, add/update as a normal key
         $this->config[$key] = $value;
     }
 
