@@ -229,35 +229,36 @@ class Config
      * 
      * @throws ConfigException If the maximum depth is exceeded.
      */
-        private function flattenArray(array $data, string $baseKey): array
-        {
-            $flattenedData = [];
-            $groups = [];
-            $stack = [['data' => $data, 'key' => $baseKey, 'depth' => 0]];
-
-            while ($stack) {
-                $current = array_pop($stack);
-                $currentData = $current['data'];
-                $currentKey = $current['key'];
-                $currentDepth = $current['depth'];
-
-                if ($currentDepth > $this->maxDepth) {
-                    throw new ConfigException("Maximum depth of {$this->maxDepth} exceeded at key: {$currentKey}");
-                }
-
-                foreach ($currentData as $key => $value) {
-                    $fullKey = "{$currentKey}.{$key}";
-
-                    if (is_array($value)) {
-                        $stack[] = ['data' => $value, 'key' => $fullKey, 'depth' => $currentDepth + 1];
-                    } else {
-                        $flattenedData[$fullKey] = $value;
-                        $groups[$fullKey] = $key;
-                    }
+    private function flattenArray(array $data, string $baseKey): array
+    {
+        $flattenedData = [];
+        $groups = [];
+        $stack = [['data' => $data, 'key' => $baseKey, 'depth' => 0]];
+    
+        while ($stack) {
+            $current = array_pop($stack);
+            $currentData = $current['data'];
+            $currentKey = $current['key'];
+            $currentDepth = $current['depth'];
+    
+            if ($currentDepth >= $this->maxDepth) { // Correctly handle "max depth exceeded"
+                throw new ConfigException("Maximum depth of {$this->maxDepth} exceeded at key: {$currentKey}");
+            }
+    
+            foreach ($currentData as $key => $value) {
+                $fullKey = "{$currentKey}.{$key}";
+    
+                if (is_array($value)) {
+                    $stack[] = ['data' => $value, 'key' => $fullKey, 'depth' => $currentDepth + 1];
+                } else {
+                    $flattenedData[$fullKey] = $value;
+                    $groups[$fullKey] = $key;
                 }
             }
-            return [$flattenedData, $groups];
         }
+    
+        return [$flattenedData, $groups];
+    }
 
     /**
      * Loads configuration data from a file.
