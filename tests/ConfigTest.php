@@ -204,4 +204,89 @@ class ConfigTest extends TestCase
         $this->assertTrue($config->deleteCache($filePath));
         $this->assertFileDoesNotExist($filePath);
     }
+
+    public function testMaxDepthExceeded(): void
+    {
+        $config = new Config();
+        $config->setMaxDepth(2);
+    
+        $this->expectException(ConfigException::class);
+        $nestedConfig = [
+            'level1' => [
+                'level2' => [
+                    'level3' => [
+                        'key' => 'value',
+                    ],
+                ],
+            ],
+        ];
+        $config->add('nested', $nestedConfig);
+    }
+    
+    public function testEmptyGroupHandling(): void
+    {
+        $config = new Config();
+        $config->add('group.empty', []);
+        $this->assertTrue($config->has('group.empty'));
+    
+        $config->delete('group.empty');
+        $this->assertFalse($config->has('group.empty'));
+    }
+
+    public function testNonUtf8File(): void
+    {
+        $config = new Config(__DIR__ . '/config');
+    
+        $filePath = __DIR__ . '/config/non_utf8.json';
+        file_put_contents($filePath, mb_convert_encoding('{"key":"value"}', 'ISO-8859-1'));
+    
+        $this->expectException(ConfigException::class);
+        $config->load('non_utf8.json');
+    
+        // Cleanup
+        unlink($filePath);
+    }
+
+    public function testFetchWithCustomParser(): void
+    {
+        $config = new Config();
+        ConfigParserFactory::registerParser('custom', CustomParser::class);
+    
+        $filePath = __DIR__ . '/config/custom_file.custom';
+        file_put_contents($filePath, "customKey:customValue");
+    
+        $result = $config->fetch($filePath);
+        $this->assertEquals(['customKey' => 'customValue'], $result);
+    
+        // Cleanup
+        unlink($filePath);
+    }
+
+    public function testInvalidCacheStructure(): void
+    {
+        $config = new Config();
+        $filePath = __DIR__ . '/cache.json';
+    
+        // Malformed cache data
+        file_put_contents($filePath, json_encode(['invalid' => 'data']));
+    
+        $this->expectException(ConfigException::class);
+        $config->loadCache($filePath);
+    
+        // Cleanup
+        unlink($filePath);
+    }
+
+    public function testLoadPerformance(): void
+    {
+        $config = new Config();
+    
+        $largeConfig = [];
+        for ($i = 0; $i < 10000; $i++) {
+            $largeConfig["key{$i}"] = "value{$i}";
+        }
+        $config->insert($largeConfig);
+    
+        $this->assertEquals('value9999', $config->get('key9999'));
+    }
 }
