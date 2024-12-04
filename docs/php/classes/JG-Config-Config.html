@@ -250,11 +250,11 @@ to extend via custom parsers.</p>
 <dd>Checks if a specific configuration key exists.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/JG-Config-Config.html#method_insert">insert()</a>
+    <a class="" href="classes/JG-Config-Config.html#method_load">load()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: bool    </span>
 </dt>
-<dd>Inserts configuration data into the manager.</dd>
+<dd>Loads configuration data from a file.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/JG-Config-Config.html#method_setConfigPath">setConfigPath()</a>
@@ -276,6 +276,13 @@ to extend via custom parsers.</p>
                                 &nbsp;: array&lt;string, mixed&gt;|null    </span>
 </dt>
 <dd>Parses a configuration file.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a class="" href="classes/JG-Config-Config.html#method_insert">insert()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Inserts configuration data into the manager.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a class="" href="classes/JG-Config-Config.html#method_resolvePath">resolvePath()</a>
@@ -534,9 +541,9 @@ source filename or unique key.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">202</span>
+    <span class="phpdocumentor-element-found-in__line">247</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.202" class="phpdocumentor-element-found-in__source" data-line="202" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.247" class="phpdocumentor-element-found-in__source" data-line="247" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Adds or updates a configuration value.</p>
@@ -591,9 +598,9 @@ source filename or unique key.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">235</span>
+    <span class="phpdocumentor-element-found-in__line">296</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.235" class="phpdocumentor-element-found-in__source" data-line="235" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.296" class="phpdocumentor-element-found-in__source" data-line="296" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Clears all configuration data.</p>
@@ -627,9 +634,9 @@ source filename or unique key.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">225</span>
+    <span class="phpdocumentor-element-found-in__line">274</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.225" class="phpdocumentor-element-found-in__source" data-line="225" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.274" class="phpdocumentor-element-found-in__source" data-line="274" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Deletes a configuration key or group.</p>
@@ -641,7 +648,11 @@ source filename or unique key.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>If the provided key corresponds to a group, all keys in that group
+will be removed from the configuration array before the group itself
+is deleted.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -675,9 +686,9 @@ source filename or unique key.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">179</span>
+    <span class="phpdocumentor-element-found-in__line">224</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.179" class="phpdocumentor-element-found-in__source" data-line="179" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.224" class="phpdocumentor-element-found-in__source" data-line="224" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Retrieves configuration from a file.</p>
@@ -731,9 +742,9 @@ source filename or unique key.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">214</span>
+    <span class="phpdocumentor-element-found-in__line">259</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.214" class="phpdocumentor-element-found-in__source" data-line="214" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.259" class="phpdocumentor-element-found-in__source" data-line="259" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Retrieves a configuration value.</p>
@@ -796,9 +807,9 @@ source filename or unique key.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">190</span>
+    <span class="phpdocumentor-element-found-in__line">235</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.190" class="phpdocumentor-element-found-in__source" data-line="190" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.235" class="phpdocumentor-element-found-in__source" data-line="235" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Checks if a specific configuration key exists.</p>
@@ -844,56 +855,76 @@ source filename or unique key.</p>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_insert">
-        insert()
-        <a href="classes/JG-Config-Config.html#method_insert" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_load">
+        load()
+        <a href="classes/JG-Config-Config.html#method_load" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">160</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.143" class="phpdocumentor-element-found-in__source" data-line="143" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.160" class="phpdocumentor-element-found-in__source" data-line="160" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Inserts configuration data into the manager.</p>
+        <p class="phpdocumentor-summary">Loads configuration data from a file.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">insert</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$config</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string, array&lt;string, string&gt;&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$groups</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">load</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filePath</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>Reads the specified file, parses its contents, and merges
+the data into the existing configuration. Optionally, groups
+configuration keys by the file's base name to create unique keys.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$config</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+                <span class="phpdocumentor-signature__argument__name">$filePath</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Configuration key-value pairs.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$groups</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, array&lt;string, string&gt;&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Configuration groups.</p>
+                    <section class="phpdocumentor-description"><p>Absolute or relative path to the file.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/JG-Config-Config.html#method_load#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/JG-Config-Exceptions-ConfigException.html"><abbr title="\JG\Config\Exceptions\ConfigException">ConfigException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the file cannot be found or parsed.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
-    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the configuration was successfully loaded.</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1022,9 +1053,9 @@ source filename or unique key.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">157</span>
+    <span class="phpdocumentor-element-found-in__line">202</span>
 
-            <a href="classes/JG-Config-Config.html#source-view.157" class="phpdocumentor-element-found-in__source" data-line="157" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+            <a href="classes/JG-Config-Config.html#source-view.202" class="phpdocumentor-element-found-in__source" data-line="202" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Parses a configuration file.</p>
@@ -1080,6 +1111,63 @@ source filename or unique key.</p>
 
             </section>
 
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_insert">
+        insert()
+        <a href="classes/JG-Config-Config.html#method_insert" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Config.php"><a href="files/src-config.html"><abbr title="src/Config.php">Config.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">143</span>
+
+            <a href="classes/JG-Config-Config.html#source-view.143" class="phpdocumentor-element-found-in__source" data-line="143" data-modal="source-view" data-src="files/src/Config.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Inserts configuration data into the manager.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">insert</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$config</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string, array&lt;string, string&gt;&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$groups</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$config</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Configuration key-value pairs.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$groups</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, array&lt;string, string&gt;&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Configuration groups.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1267,10 +1355,11 @@ source filename or unique key.</p>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_fetch">fetch()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_get">get()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_has">has()</a></li>
-                                            <li class=""><a href="classes/JG-Config-Config.html#method_insert">insert()</a></li>
+                                            <li class=""><a href="classes/JG-Config-Config.html#method_load">load()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_setConfigPath">setConfigPath()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_setFlatten">setFlatten()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_parse">parse()</a></li>
+                                            <li class=""><a href="classes/JG-Config-Config.html#method_insert">insert()</a></li>
                                             <li class=""><a href="classes/JG-Config-Config.html#method_resolvePath">resolvePath()</a></li>
                                     </ul>
             </li>

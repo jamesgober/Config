@@ -42,11 +42,13 @@ class ConfigParserFactory
      * @var array<string, class-string<ParserInterface>>
      */
     private static array $configParsers = [
-        'php'  => \JG\Config\Parsers\PhpParser::class,
         'conf' => \JG\Config\Parsers\ConfParser::class,
-        'json' => \JG\Config\Parsers\JsonParser::class,
         'ini'  => \JG\Config\Parsers\IniParser::class,
+        'json' => \JG\Config\Parsers\JsonParser::class,
+        'php'  => \JG\Config\Parsers\PhpParser::class,
         'xml'  => \JG\Config\Parsers\XmlParser::class,
+        'yaml' => \JG\Config\Parsers\YamlParser::class,
+        'yml'  => \JG\Config\Parsers\YamlParser::class,
     ];
 
     /**

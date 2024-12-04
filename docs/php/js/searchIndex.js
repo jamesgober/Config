@@ -31,6 +31,11 @@ Search.appendIndex(
             "summary": "Inserts\u0020configuration\u0020data\u0020into\u0020the\u0020manager.",
             "url": "classes/JG-Config-Config.html#method_insert"
         },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003Aload\u0028\u0029",
+            "name": "load",
+            "summary": "Loads\u0020configuration\u0020data\u0020from\u0020a\u0020file.",
+            "url": "classes/JG-Config-Config.html#method_load"
+        },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003Aparse\u0028\u0029",
             "name": "parse",
             "summary": "Parses\u0020a\u0020configuration\u0020file.",

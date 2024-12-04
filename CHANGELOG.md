@@ -13,25 +13,37 @@ This file tracks all notable changes made to the project, including new features
 - **Security**: In case of vulnerabilities.
 
 ---
+<!--
 ## [Unreleased]
 
 ### Added
 - Created a paragraph with a link to the `CHANGELOG` in the `README.md` file.
+-->
 
 &nbsp;
 
 <!-- 
 # 
-#
+----------------------------- -->
+## [1.0.0-RC.2] - 2024-12-03
+
+### Fixed
+- Resolved issues with the `load` method in `Config.php`.
+
+### Updated
+- `Delete` method in `Config.php` now deletes configurations by group, ensuring consistency.
+- Enhanced `ConfigParserFactory.php` with support for `yaml` and `yml` files, improving YAML compatibility.
+- Updated `README.md` file.
+
+&nbsp;
+
+<!-- 
 # 
 ----------------------------- -->
-## [1.0.0-Rc.1] - 2024-11-22
+## [1.0.0-RC.1] - 2024-11-22
 
 ### Added
-- Created `LICENSE` file.
-- Created `VERSION` file.
-- Created `composer.json` file.
-- Created `.gitignore` file.
+- Initial setup of project files: `LICENSE`, `VERSION`, `composer.json`, `.gitignore`, `.gitattributes`, and `CHANGELOG.md`.
 - Created Main `Config.php` class.
 - Created `ConfigParserFactory.php` class.
 - Created `ConfigException.php` class.
@@ -45,13 +57,11 @@ This file tracks all notable changes made to the project, including new features
 - Created `XmlParser.php` class.
 - Created `YamlParser.php` class.
 - Created `README.md` file.
-- Created `.gitattributes` file.
-- Created this `CHANGELOG.md` file.
 
 <!-- 
 # UNRELEASED
 ----------------------------- -->
 [unreleased]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.1...HEAD
 
-
+[1.0.0-RC.2]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.1...v1.0.0-RC.2
 [1.0.0-RC.1]: https://github.com/jamesgober/Config/releases/tag/v1.0.0-RC.1

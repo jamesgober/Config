@@ -14,7 +14,7 @@
         ],
         "minimum-stability": "stable",
         "prefer-stable": true,
-        "time": "2024-11-21",
+        "time": "2024-12-03",
         "type": "library",
         "license": "MIT",
         "homepage": "https://github.com/jamesgober/Config",
@@ -31,7 +31,7 @@
             }
         ],
         "require": {
-            "php": ">=8.2",
+            "php": ">=8.1",
             "ext-json": "*",
             "ext-xml": "*",
             "symfony/yaml": "^7.1"

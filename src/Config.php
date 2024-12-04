@@ -115,27 +115,6 @@ class Config
     }
 
     /**
-     * Loads configuration data from a file.
-     *
-     * Reads the specified file, parses its contents, and merges 
-     * the data into the existing configuration. Optionally, groups
-     * configuration keys by the file's base name to create unique keys.
-     *
-     * @param string|null $filePath   Absolute or relative path to the file.
-     * @param bool        $makeUnique Whether to group keys by file base name.
-     * 
-     * @return bool  True if the configuration was successfully loaded.
-     */
-    public function load(?string $filePath = null, bool $makeUnique = true): bool
-    {
-        $data = $this->parse($filePath);
-        if (!is_array($data)) {
-            return false;
-        }
-        return $makeUnique ? $this->groupData($data, $filePath) : $this->merge($data);
-    }
-
-    /**
      * Resolves the full file path.
      *
      * @param string|null $filePath The file path or filename (optional).
@@ -163,8 +142,53 @@ class Config
      */
     public function insert(array $config = [], array $groups = []): void
     {
-        $this->groups = array_merge($this->groups, $groups);
         $this->config = array_merge($this->config, $config);
+        $this->groups = array_merge($this->groups, $groups);
+    }
+
+    /**
+     * Loads configuration data from a file.
+     *
+     * Reads the specified file, parses its contents, and merges 
+     * the data into the existing configuration. Optionally, groups
+     * configuration keys by the file's base name to create unique keys.
+     *
+     * @param string|null $filePath Absolute or relative path to the file.
+     * @return bool True if the configuration was successfully loaded.
+     * @throws ConfigException If the file cannot be found or parsed.
+     */
+    public function load(?string $filePath = null): bool
+    {
+        $filePath = $this->resolvePath($filePath);
+        if (!$filePath || !is_file($filePath)) {
+            throw new ConfigException("Configuration file not found: {$filePath}");
+        }
+
+        // Parse the configuration file
+        $parsedData = $this->parse($filePath);
+        if ($parsedData === null) {
+            throw new ConfigException("Failed to parse configuration file: {$filePath}");
+        }
+
+        // If flattening is enabled, group keys by the file's base name
+        if ($this->flatten) {
+            $baseName = strtolower(preg_replace('/\.[^.]+$/', '', basename($filePath)));
+            $groupedData = [];
+            $groups = [];
+
+            foreach ($parsedData as $key => $value) {
+                $groupedKey = "{$baseName}.{$key}";
+                $groupedData[$groupedKey] = $value;
+                $groups[$key] = $groupedKey;
+            }
+
+            $this->insert($groupedData, [$baseName => $groups]);
+            return true;
+        }
+
+        // Insert directly if not flattened
+        $this->insert($parsedData);
+        return true;
     }
 
     /**
@@ -240,12 +264,28 @@ class Config
     /**
      * Deletes a configuration key or group.
      *
+     * If the provided key corresponds to a group, all keys in that group
+     * will be removed from the configuration array before the group itself
+     * is deleted.
+     *
      * @param string $key The key or group to delete.
      * @return void
      */
     public function delete(string $key): void
     {
-        unset($this->config[$key], $this->groups[$key]);
+        // Check if the key exists as a group
+        if (isset($this->groups[$key])) {
+            // Iterate over the group's keys and remove them from the config array
+            foreach ($this->groups[$key] as $groupKey) {
+                unset($this->config[$groupKey]);
+            }
+            // Remove the group entry itself
+            unset($this->groups[$key]);
+            return;
+        }
+
+        // If it's not a group, delete it directly from the config array
+        unset($this->config[$key]);
     }
 
     /**

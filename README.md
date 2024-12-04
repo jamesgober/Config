@@ -55,6 +55,26 @@ if ($config->has('app.debug')) {
 $config->add('app.name', 'MyApp');
 ```
 
+
+### Delete Configuration
+```php
+/*
+Config Data
+[
+    app.name = 'Application Name',
+    app.version = '1.0.0',
+    app.debug = true,
+    ...
+]
+*/
+
+// Delete single value
+$config->add('app.version'); // app.version deleted
+
+// Delete entire group
+$config->add('app'); // app.name, app.debug... deleted
+```
+
 ### Custom Parsers
 
 You can extend the library by registering custom parsers:
@@ -66,13 +86,15 @@ use JG\Config\ConfigParserFactory;
 ConfigParserFactory::registerParser('custom', MyCustomParser::class);
 ```
 
-### Supported Formats
+&nbsp;
 
-- **JSON**: `config.json`
-- **XML**: `config.xml`
-- **YAML**: `config.yaml`
+### Supported Formats
+- **CONF**: `config.conf`
 - **INI**: `config.ini`
+- **JSON**: `config.json`
 - **PHP Array**: `config.php`
+- **XML**: `config.xml`
+- **YAML**: `config.yaml` or `config.yml`
 
 #### config.php
 ```php
