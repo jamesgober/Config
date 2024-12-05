@@ -3,12 +3,13 @@
  * ConfParser.php
  * 
  * Parses key-value pairs from custom CONF configuration files. These files
- * typically use `:` or `=` as separators for key-value pairs.
+ * typically use `=` as the separator for key-value pairs.
  * 
  * PHP version 8.2
  *
  * @package    JG\Config\Parsers
  * @version    1.0.0
+ * @since      1.0.0
  * @author     James Gober <code@jamesgober.com>
  * @link       https://github.com/jamesgober/Config
  * @license    MIT License
@@ -18,19 +19,20 @@ declare(strict_types=1);
 
 namespace JG\Config\Parsers;
 
+use \file;
 use \trim;
-use \sprintf;
-use \is_numeric;
-use \strtolower;
-use \preg_match_all;
-use \file_get_contents;
+use \explode;
+use \is_file;
+use \preg_match;
+use \is_readable;
 use \JG\Config\Exceptions\ConfigParseException;
 
 /**
  * ConfParser
  * 
  * Parses key-value pairs from CONF configuration files. This parser supports
- * flexible key-value syntax with either `:` or `=` as separators.
+ * clean formatting with `=` as the separator. It skips comments and empty lines
+ * and trims whitespace while preserving inner spaces.
  * 
  * @package JG\Config\Parsers
  */
@@ -39,12 +41,9 @@ class ConfParser implements ParserInterface
     /**
      * Parses a CONF configuration file into an associative array.
      *
-     * The method reads key-value pairs from the file, where keys and values are separated
-     * by either `:` or `=`. Leading and trailing whitespace is trimmed for both keys and values.
-     *
      * Example:
      * ```
-     * host: localhost
+     * host = localhost
      * user = root
      * ```
      *
@@ -58,40 +57,33 @@ class ConfParser implements ParserInterface
             throw new ConfigParseException("File not found or unreadable: {$filePath}");
         }
 
-        // Attempt to retrieve the file contents
-        $data = file_get_contents($filePath);
-
-        if ($data === false) {
-            throw new ConfigParseException(
-                sprintf("Failed to read CONF configuration file: %s", $filePath)
-            );
+        $lines = file($filePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        if ($lines === false) {
+            throw new ConfigParseException("Failed to read the CONF file: {$filePath}");
         }
 
-        $out = [];
+        $output = [];
 
-        // Define regex for capturing key-value pairs with `:` or `=` as separator
-        $regex = '/^(?P<key>[a-zA-Z._\-]+[a-zA-Z0-9]*)\s*[:=]\s*(?P<value>.*)$/m';
+        foreach ($lines as $line) {
+            $line = trim($line);
 
-        // Process matches using the defined regex pattern
-        if (preg_match_all($regex, $data, $matches, PREG_SET_ORDER)) {
-            foreach ($matches as $match) {
-                $key = trim($match['key']);
-                $value = trim($match['value']);
-
-                // Convert scalar values (e.g., true, false, null, numbers) if applicable
-                $value = $this->convertValue($value);
-
-                if ($key !== '' && $value !== '') {
-                    $out[$key] = $value;
-                }
+            // Skip comments
+            if (str_starts_with($line, '#') || str_starts_with($line, ';')) {
+                continue;
             }
-        } else {
-            throw new ConfigParseException(
-                sprintf("No valid key-value pairs found in CONF file: %s", $filePath)
-            );
+
+            // Parse key=value pairs
+            $parts = explode('=', $line, 2);
+            if (count($parts) === 2) {
+                $key = trim($parts[0]);
+                $value = trim($parts[1]);
+
+                // Convert scalar values if applicable
+                $output[$key] = $this->convertValue($value);
+            }
         }
 
-        return $out;
+        return $output;
     }
 
     /**

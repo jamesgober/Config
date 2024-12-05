@@ -41,15 +41,30 @@ Search.appendIndex(
             "summary": "Inserts\u0020configuration\u0020data\u0020into\u0020the\u0020manager.",
             "url": "classes/JG-Config-Config.html#method_insert"
         },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AmergeConfig\u0028\u0029",
+            "name": "mergeConfig",
+            "summary": "Merges\u0020new\u0020configuration\u0020data\u0020into\u0020the\u0020existing\u0020configuration.",
+            "url": "classes/JG-Config-Config.html#method_mergeConfig"
+        },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003AflattenArray\u0028\u0029",
             "name": "flattenArray",
-            "summary": "Flattens\u0020a\u0020multidimensional\u0020array\u0020into\u0020dot\u002Dnotated\u0020keys\u0020and\u0020groups.",
+            "summary": "Flattens\u0020a\u0020nested\u0020configuration\u0020array.",
             "url": "classes/JG-Config-Config.html#method_flattenArray"
         },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003Aload\u0028\u0029",
             "name": "load",
             "summary": "Loads\u0020configuration\u0020data\u0020from\u0020a\u0020file.",
             "url": "classes/JG-Config-Config.html#method_load"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AloadMultiple\u0028\u0029",
+            "name": "loadMultiple",
+            "summary": "Loads\u0020configuration\u0020data\u0020from\u0020multiple\u0020files.",
+            "url": "classes/JG-Config-Config.html#method_loadMultiple"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AloadFromStream\u0028\u0029",
+            "name": "loadFromStream",
+            "summary": "Loads\u0020configuration\u0020data\u0020from\u0020a\u0020stream\u0020\u0028e.g.,\u0020PSR\u002D7\u0020StreamInterface\u0029.",
+            "url": "classes/JG-Config-Config.html#method_loadFromStream"
         },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003Aparse\u0028\u0029",
             "name": "parse",
@@ -60,6 +75,11 @@ Search.appendIndex(
             "name": "fetch",
             "summary": "Retrieves\u0020configuration\u0020from\u0020a\u0020file.",
             "url": "classes/JG-Config-Config.html#method_fetch"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AvalidateConfigStructure\u0028\u0029",
+            "name": "validateConfigStructure",
+            "summary": "Validates\u0020the\u0020structure\u0020of\u0020configuration\u0020and\u0020group\u0020data.",
+            "url": "classes/JG-Config-Config.html#method_validateConfigStructure"
         },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003Ahas\u0028\u0029",
             "name": "has",
@@ -91,14 +111,19 @@ Search.appendIndex(
             "summary": "Retrieves\u0020all\u0020configuration\u0020groups.",
             "url": "classes/JG-Config-Config.html#method_getGroups"
         },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AresetGroups\u0028\u0029",
+            "name": "resetGroups",
+            "summary": "Resets\u0020the\u0020configuration\u0020groups\u0020to\u0020an\u0020empty\u0020state.",
+            "url": "classes/JG-Config-Config.html#method_resetGroups"
+        },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003AsaveCache\u0028\u0029",
             "name": "saveCache",
-            "summary": "Saves\u0020the\u0020configuration\u0020and\u0020groups\u0020data\u0020to\u0020a\u0020cache\u0020file.",
+            "summary": "Saves\u0020the\u0020current\u0020configuration\u0020to\u0020a\u0020cache\u0020file.",
             "url": "classes/JG-Config-Config.html#method_saveCache"
         },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003AloadCache\u0028\u0029",
             "name": "loadCache",
-            "summary": "Loads\u0020the\u0020configuration\u0020and\u0020groups\u0020from\u0020a\u0020cache\u0020file.",
+            "summary": "Loads\u0020configuration\u0020and\u0020groups\u0020from\u0020a\u0020cache\u0020file.",
             "url": "classes/JG-Config-Config.html#method_loadCache"
         },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003AdeleteCache\u0028\u0029",
@@ -108,13 +133,23 @@ Search.appendIndex(
         },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003Aclear\u0028\u0029",
             "name": "clear",
-            "summary": "Clears\u0020all\u0020configuration\u0020data.",
+            "summary": "Clears\u0020the\u0020configuration\u0020manager.",
             "url": "classes/JG-Config-Config.html#method_clear"
         },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003AEXPIRE_NEVER",
             "name": "EXPIRE_NEVER",
             "summary": "Common\u0020expiration\u0020durations\u0020in\u0020seconds.",
             "url": "classes/JG-Config-Config.html#constant_EXPIRE_NEVER"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AEXPIRE_ONE_HOUR",
+            "name": "EXPIRE_ONE_HOUR",
+            "summary": "",
+            "url": "classes/JG-Config-Config.html#constant_EXPIRE_ONE_HOUR"
+        },                {
+            "fqsen": "\\JG\\Config\\Config\u003A\u003AEXPIRE_HALF_DAY",
+            "name": "EXPIRE_HALF_DAY",
+            "summary": "",
+            "url": "classes/JG-Config-Config.html#constant_EXPIRE_HALF_DAY"
         },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003AEXPIRE_ONE_DAY",
             "name": "EXPIRE_ONE_DAY",
@@ -153,12 +188,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003A\u0024groups",
             "name": "groups",
-            "summary": "Grouped\u0020configuration\u0020storage.",
+            "summary": "Grouped\u0020configuration\u0020storage,\u0020allowing\u0020access\u0020by\u0020group\u0020or\nunique\u0020key.",
             "url": "classes/JG-Config-Config.html#property_groups"
         },                {
             "fqsen": "\\JG\\Config\\Config\u003A\u003A\u0024config",
             "name": "config",
-            "summary": "Primary\u0020configuration\u0020storage.",
+            "summary": "Primary\u0020configuration\u0020storage,\u0020including\u0020unique\u0020keys\u0020from\ngrouped\u0020configurations.",
             "url": "classes/JG-Config-Config.html#property_config"
         },                {
             "fqsen": "\\JG\\Config\\ConfigParserFactory",

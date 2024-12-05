@@ -17,6 +17,40 @@ This file tracks all notable changes made to the project, including new features
 -->
 
 
+&nbsp;
+
+<!-- 
+# 
+----------------------------- -->
+## [1.0.0-RC.5] - 2024-12-05
+
+### Added
+- **Custom Parser Support**: Introduced the ability to dynamically register and utilize custom parsers, enhancing extensibility.
+- **Non-UTF-8 Handling**: Added improved handling for files with non-UTF-8 encodings, ensuring compatibility across varied environments.
+- **Performance Tests**: Included benchmarks and stress tests to validate library performance under high-load scenarios.
+- **Extended Cache Operations**: Enhanced cache handling with robust invalidation and expiration logic.
+- **Enhanced Flattening Control**: Improved options for enabling/disabling key flattening, offering better flexibility for hierarchical configurations.
+
+### Changed
+- **Default Flattening Behavior**: Updated the `Config` constructor to accept an explicit flag for flattening, providing better control and eliminating unexpected defaults.
+- **Parsing Enhancements**:
+  - Optimized performance for **CONF parsing** by leveraging `file()` for efficient line-by-line processing while preserving spacing and comments.
+  - Improved regex-based parsing to handle edge cases with clean and flexible key-value extraction.
+  - Enhanced exception messages to offer more descriptive debugging feedback.
+- **Error Handling**: Unified error handling across parsers to provide more informative and actionable exceptions.
+- **Streamlining Tests**:
+  - Refactored `ConfigTest` for clarity, expanded coverage, and consistent structure.
+  - Reworked performance test cases to accurately benchmark operations under diverse conditions.
+
+### Fixed
+- **Custom Parser Registration**: Resolved issues where dynamically registered custom parsers were not recognized during runtime.
+- **UTF-8 Validation**: Addressed conflicts where systems forced UTF-8 encoding, bypassing intended checks for invalid encoding.
+- **Max Depth Exceeded**: Fixed edge cases in nested configurations exceeding max depth, ensuring the error is thrown correctly.
+- **Cache Structure Validation**: Resolved potential inconsistencies in cache format validation and loading.
+
+### Removed
+- **Test Parsers from Production**: Completely removed test parsers from production code to maintain separation of concerns and a cleaner production environment.
+
 
 &nbsp;
 
@@ -130,6 +164,8 @@ This file tracks all notable changes made to the project, including new features
 <!-- 
 # PRE-RELEASE
 ----------------------------- -->
+
+[1.0.0-RC.5]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.4...v1.0.0-RC.5
 [1.0.0-RC.4]: https://github.com/jamesgober/Config/compare/v1.0.0-RC3...v1.0.0-RC.4
 [1.0.0-RC.3]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.2...v1.0.0-RC3
 [1.0.0-RC.2]: https://github.com/jamesgober/Config/compare/v1.0.0-Rc.1...v1.0.0-RC.2

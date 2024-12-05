@@ -130,16 +130,17 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Parsers/ConfParser.php"><a href="files/src-parsers-confparser.html"><abbr title="src/Parsers/ConfParser.php">ConfParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
-            <a href="classes/JG-Config-Parsers-ConfParser.html#source-view.37" class="phpdocumentor-element-found-in__source" data-line="37" data-modal="source-view" data-src="files/src/Parsers/ConfParser.php.txt"></a>
+            <a href="classes/JG-Config-Parsers-ConfParser.html#source-view.39" class="phpdocumentor-element-found-in__source" data-line="39" data-modal="source-view" data-src="files/src/Parsers/ConfParser.php.txt"></a>
     </aside>
 
             <p class="phpdocumentor-summary">ConfParser</p>
 
 
     <section class="phpdocumentor-description"><p>Parses key-value pairs from CONF configuration files. This parser supports
-flexible key-value syntax with either <code class="prettyprint">:</code> or <code class="prettyprint">=</code> as separators.</p>
+clean formatting with <code class="prettyprint">=</code> as the separator. It skips comments and empty lines
+and trims whitespace while preserving inner spaces.</p>
 </section>
 
 
@@ -218,9 +219,9 @@ flexible key-value syntax with either <code class="prettyprint">:</code> or <cod
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Parsers/ConfParser.php"><a href="files/src-parsers-confparser.html"><abbr title="src/Parsers/ConfParser.php">ConfParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 
-            <a href="classes/JG-Config-Parsers-ConfParser.html#source-view.55" class="phpdocumentor-element-found-in__source" data-line="55" data-modal="source-view" data-src="files/src/Parsers/ConfParser.php.txt"></a>
+            <a href="classes/JG-Config-Parsers-ConfParser.html#source-view.54" class="phpdocumentor-element-found-in__source" data-line="54" data-modal="source-view" data-src="files/src/Parsers/ConfParser.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Parses a CONF configuration file into an associative array.</p>
@@ -232,10 +233,8 @@ flexible key-value syntax with either <code class="prettyprint">:</code> or <cod
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>The method reads key-value pairs from the file, where keys and values are separated
-by either <code class="prettyprint">:</code> or <code class="prettyprint">=</code>. Leading and trailing whitespace is trimmed for both keys and values.</p>
-<p>Example:</p>
-<pre class="prettyprint"><code class="prettyprint">host: localhost
+        <section class="phpdocumentor-description"><p>Example:</p>
+<pre class="prettyprint"><code class="prettyprint">host = localhost
 user = root
 </code></pre>
 </section>
@@ -298,9 +297,9 @@ user = root
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Parsers/ConfParser.php"><a href="files/src-parsers-confparser.html"><abbr title="src/Parsers/ConfParser.php">ConfParser.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">107</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
-            <a href="classes/JG-Config-Parsers-ConfParser.html#source-view.107" class="phpdocumentor-element-found-in__source" data-line="107" data-modal="source-view" data-src="files/src/Parsers/ConfParser.php.txt"></a>
+            <a href="classes/JG-Config-Parsers-ConfParser.html#source-view.99" class="phpdocumentor-element-found-in__source" data-line="99" data-modal="source-view" data-src="files/src/Parsers/ConfParser.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Converts string values to their respective PHP scalar types where applicable.</p>

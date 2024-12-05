@@ -2,13 +2,15 @@
 /**
  * ConfigParserFactory.php
  * 
- * Factory class for creating and managing configuration parsers based on file extensions.
- * Allows registration of custom parsers and overrides for default parsers.
+ * Factory class for creating and managing configuration parsers 
+ * based on file extensions. Allows registration of custom parsers 
+ * and overrides for default parsers.
  * 
  * PHP version 8.2
  *
  * @package    JG\Config
  * @version    1.0.0
+ * @since      1.0.0
  * @author     James Gober <code@jamesgober.com>
  * @link       https://github.com/jamesgober/Config
  * @license    MIT License
@@ -29,8 +31,10 @@ use JG\Config\Exceptions\InvalidParserException;
 /**
  * ConfigParserFactory
  * 
- * Factory class for creating and managing configuration parsers. Supports default parsers
- * for common file formats such as JSON, PHP, and XML, and allows custom parsers to be registered.
+ * Factory class for creating and managing configuration parsers. 
+ * Supports default parsers for common file formats such as conf,
+ * ini, json, PHP, xml, yaml/yml, and allows custom parsers to be 
+ * registered.
  * 
  * @package JG\Config
  */
@@ -72,7 +76,7 @@ class ConfigParserFactory
         }
 
         throw new InvalidParserException(
-            "No suitable parser found for file extension: .$extension"
+            "No suitable parser found for file extension: .$extension. File: $filePath"
         );
     }
 
@@ -81,21 +85,34 @@ class ConfigParserFactory
      *
      * @param string $extension The file extension for the parser (e.g., 'yaml').
      * @param class-string<ParserInterface> $parserClass Fully qualified class name of the parser,
-     *                                                         must implement ParserInterface.
+     *                                                   must implement ParserInterface.
      * @return void
      * @throws InvalidParserException If the class does not implement the required interface.
      */
     public static function registerParser(string $extension, string $parserClass): void
     {
-        // Validate that the class implements ParserInterface
+        $extension = strtolower(ltrim($extension, '.'));
+
+        if (empty($extension)) {
+            throw new InvalidParserException("File extension cannot be empty.");
+        }
+        // Validate and instantiate the parser class
+        if ($parserClass && is_a($parserClass, ParserInterface::class, true)) {
+            self::$configParsers[$extension] = $parserClass;
+            return;
+        }
+
         if (!is_a($parserClass, ParserInterface::class, true)) {
             throw new InvalidParserException(
                 "Parser class '{$parserClass}' must implement ParserInterface."
             );
         }
 
-        // Sanitize the extension and register the parser
-        $extension = strtolower(ltrim($extension, '.'));
+        // Optional: prevent duplicate registration unless overwriting
+        if (isset(self::$configParsers[$extension])) {
+            throw new InvalidParserException("Parser for extension '{$extension}' is already registered.");
+        }
+
         self::$configParsers[$extension] = $parserClass;
     }
 
@@ -133,10 +150,16 @@ class ConfigParserFactory
     public static function unregisterParser(string $extension): bool
     {
         $extension = strtolower(ltrim($extension, '.'));
+
+        if (empty($extension)) {
+            return false;
+        }
+
         if (isset(self::$configParsers[$extension])) {
             unset(self::$configParsers[$extension]);
             return true;
         }
+
         return false;
     }
 }
