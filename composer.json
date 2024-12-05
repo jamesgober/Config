@@ -50,7 +50,7 @@
         },
         "autoload-dev": {
             "psr-4": {
-                "JG\\Config\\": "tests/"
+                "JG\\Tests\\": "tests/"
             }
         },
         "scripts": {

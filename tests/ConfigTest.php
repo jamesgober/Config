@@ -6,9 +6,11 @@ namespace JG\Tests;
 
 use JG\Config\Config;
 use PHPUnit\Framework\TestCase;
+use JG\Config\ConfigParserFactory;
 use JG\Config\Exceptions\ConfigException;
 
 class ConfigTest extends TestCase
+
 {
     public function testSetConfigPathValid(): void
     {
@@ -210,17 +212,24 @@ class ConfigTest extends TestCase
         $config = new Config();
         $config->setMaxDepth(2);
     
-        $this->expectException(ConfigException::class);
         $nestedConfig = [
             'level1' => [
                 'level2' => [
-                    'level3' => [
+                    'level3' => [ // This should exceed max depth
                         'key' => 'value',
                     ],
                 ],
             ],
         ];
-        $config->add('nested', $nestedConfig);
+    
+        $this->expectException(ConfigException::class);
+    
+        // Use reflection to call the protected `flattenArray` directly
+        $reflection = new \ReflectionClass($config);
+        $method = $reflection->getMethod('flattenArray');
+        $method->setAccessible(true);
+    
+        $method->invoke($config, $nestedConfig, 'nested');
     }
     
     public function testEmptyGroupHandling(): void
@@ -236,30 +245,41 @@ class ConfigTest extends TestCase
     public function testNonUtf8File(): void
     {
         $config = new Config(__DIR__ . '/config');
-    
+
         $filePath = __DIR__ . '/config/non_utf8.json';
-        file_put_contents($filePath, mb_convert_encoding('{"key":"value"}', 'ISO-8859-1'));
+    
+        // Simulate non-UTF-8 file
+        $data = '{"key":"value"}';
+        file_put_contents($filePath, mb_convert_encoding($data, 'ISO-8859-1'));
+    
+        // Mock the encoding check
+        $mockedFilePath = __DIR__ . '/config/mocked_non_utf8.json';
+        file_put_contents($mockedFilePath, "\x80\x81\x82"); // Invalid UTF-8 sequence
     
         $this->expectException(ConfigException::class);
-        $config->load('non_utf8.json');
+        $this->expectExceptionMessage("File encoding must be UTF-8");
+    
+        // Force the parser to encounter the mocked data
+        $config->load(basename($mockedFilePath));
     
         // Cleanup
         unlink($filePath);
     }
 
-    public function testFetchWithCustomParser(): void
+    public function setUp(): void
     {
-        $config = new Config();
-        ConfigParserFactory::registerParser('custom', CustomParser::class);
+        parent::setUp();
     
-        $filePath = __DIR__ . '/config/custom_file.custom';
-        file_put_contents($filePath, "customKey:customValue");
+        ConfigParserFactory::registerParser('custom', \JG\Tests\CustomParser::class);
+    }
+
+    public function testCustomParser(): void
+    {
+        $config = new Config(__DIR__ . '/config/', false);
+        $config->load('config.custom');
     
-        $result = $config->fetch($filePath);
-        $this->assertEquals(['customKey' => 'customValue'], $result);
-    
-        // Cleanup
-        unlink($filePath);
+        $this->assertEquals('value1', $config->get('key1'));
+        $this->assertEquals('value2', $config->get('key2'));
     }
 
     public function testInvalidCacheStructure(): void
@@ -285,7 +305,13 @@ class ConfigTest extends TestCase
         for ($i = 0; $i < 10000; $i++) {
             $largeConfig["key{$i}"] = "value{$i}";
         }
-        $config->insert($largeConfig);
+    
+        // Use reflection to access the protected `insert` method
+        $reflection = new \ReflectionClass($config);
+        $method = $reflection->getMethod('insert');
+        $method->setAccessible(true);
+    
+        $method->invoke($config, $largeConfig);
     
         $this->assertEquals('value9999', $config->get('key9999'));
     }

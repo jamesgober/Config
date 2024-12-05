@@ -96,6 +96,11 @@ class ConfigParserFactory
         if (empty($extension)) {
             throw new InvalidParserException("File extension cannot be empty.");
         }
+        // Validate and instantiate the parser class
+        if ($parserClass && is_a($parserClass, ParserInterface::class, true)) {
+            self::$configParsers[$extension] = $parserClass;
+            return;
+        }
 
         if (!is_a($parserClass, ParserInterface::class, true)) {
             throw new InvalidParserException(

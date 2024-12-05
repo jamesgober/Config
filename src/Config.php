@@ -15,7 +15,7 @@
  * @link       https://github.com/jamesgober/Config
  * @license    MIT License
  * @copyright  2024 James Gober (https://jamesgober.com)
- */
+*/
 declare(strict_types=1);
 
 namespace JG\Config;
@@ -346,16 +346,26 @@ class Config
     protected function parse(?string $filePath = null): ?array
     {
         $filePath = $this->resolvePath($filePath);
-
+    
         if (!$filePath || !is_file($filePath)) {
             throw new ConfigException("Configuration file not found: {$filePath}");
         }
-
+    
+        $contents = file_get_contents($filePath);
+        if ($contents === false) {
+            throw new ConfigException("Failed to read configuration file: {$filePath}");
+        }
+    
+        // Validate UTF-8 encoding
+        if (!mb_check_encoding($contents, 'UTF-8')) {
+            throw new ConfigException("File encoding must be UTF-8: {$filePath}");
+        }
+    
         $parser = ConfigParserFactory::createParser($filePath);
         if (!$parser) {
             throw new ConfigException("No suitable parser found for: {$filePath}");
         }
-
+    
         return $parser->parse($filePath);
     }
 
@@ -538,26 +548,32 @@ class Config
         if ($this->cacheLoaded) {
             return true;
         }
-
+    
         if (!is_file($filePath) || !is_readable($filePath)) {
             return false;
         }
-
-        $data = json_decode(file_get_contents($filePath), true, 512, JSON_THROW_ON_ERROR);
-
-        if (!is_array($data['config']) || !is_array($data['groups'])) {
+    
+        try {
+            $data = json_decode(file_get_contents($filePath), true, 512, JSON_THROW_ON_ERROR);
+        } catch (\JsonException $e) {
+            unlink($filePath); // Cleanup malformed cache
+            return false;
+        }
+    
+        if (!isset($data['config'], $data['groups']) || !is_array($data['config']) || !is_array($data['groups'])) {
+            unlink($filePath); // Cleanup malformed cache
             throw new ConfigException("Invalid cache format: 'config' and 'groups' must be arrays.");
         }
-
+    
         if (isset($data['expires']) && $data['expires'] > 0 && time() > $data['expires']) {
             $this->deleteCache($filePath);
             return false;
         }
-
+    
         $this->config = $data['config'];
         $this->groups = $data['groups'];
         $this->cacheLoaded = true;
-
+    
         return true;
     }
 

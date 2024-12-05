@@ -16,10 +16,7 @@ class XmlParserTest extends TestCase
         $parser = new XmlParser();
     
         $result = $parser->parse($filePath);
-    
-        // Debugging the result
-        var_dump($result);
-    
+
         $this->assertIsArray($result);
         $this->assertArrayHasKey('app', $result);
         $this->assertArrayHasKey('name', $result['app']);
