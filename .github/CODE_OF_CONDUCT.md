@@ -30,12 +30,10 @@ We strive to foster a respectful and professional environment for all contributo
 &nbsp;
 
 ## **Reporting Issues**
-&#9888; Coming soon.
-<!--
 If you experience or observe behavior that violates these guidelines, please report it by:
-- Emailing the maintainer at [your-email@example.com].
+- Emailing the maintainer at [report@jamesgober.dev](mailto:report@jamesgober.dev).
 - Providing a clear description of the issue.
--->
+
 
 &nbsp;
 
