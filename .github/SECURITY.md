@@ -37,15 +37,11 @@ If you discover a security vulnerability, please follow these steps:
 
 
 2. **Contact Us**:
-
-&#9888; Coming soon.
-<!--
-   - Email the maintainer at [security@example.com] with the subject `Security Report`.
+   - Email the maintainer at **[report@jamesgober.dev]** with the subject `Security Report`.
    - Include detailed information:
      - A description of the vulnerability.
      - Steps to reproduce the issue.
      - Any potential impact or risk.
--->
 
 3. **Response Timeline**:
    - We will acknowledge your report within **48 hours**.
@@ -76,3 +72,6 @@ Thank you for helping us maintain a secure project!
     <br>
     <small>Updated: December 5th 2024</small>
 </p>
+
+
+[report@jamesgober.dev]: mailto:report@jamesgober.dev?subject=Security%20Report&body=Please%20describe%20the%20vulnerability%20in%20detail.%20Steps%20to%20reproduce%20the%20issue,%20and%20any%20potential%20impact%20or%20risks.
