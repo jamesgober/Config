@@ -54,6 +54,9 @@ When it comes to configuration management, JG\Config stands out for its:
 - **Advanced Features**: Offers caching, dynamic flattening control, and stream parsing for modern PHP projects.
 - **Error-Resilient**: Comprehensive error handling and detailed exception messages for seamless debugging.
 - **Tested Reliability**: Rigorously tested with PHPUnit to ensure predictable and stable performance.
+- **Built on S.O.L.I.D principles** for clean, maintainable, and extendable code.
+- **Optimized for high performance**, reducing overhead during configuration loads.
+- **Flexible, modular design** allows seamless extensions with custom parsers.
 
 Whether you’re building a small application or managing a complex project, JG\Config provides the tools to handle your configuration needs efficiently.
 
