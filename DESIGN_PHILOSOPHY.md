@@ -50,3 +50,19 @@
 ## How We Apply These Principles
 &#9888; Coming soon.
 
+
+
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+##
+
+<p>
+    DESIGN PHILOSOPHY: &nbsp; v1.0.0
+    <br>
+    <small>Updated: December 5th 2024</small>
+</p>
