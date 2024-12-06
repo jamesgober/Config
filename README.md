@@ -10,7 +10,7 @@
     <br>
 </h1>
 
-<div style="text-align: center;">
+<div align="center">
     <img src="https://img.shields.io/github/stars/jamesgober/config?style=flat" alt="GitHub Stars"> &nbsp; 
     <img src="https://img.shields.io/github/issues/jamesgober/config?style=flat" alt="GitHub Issues"> &nbsp;  
     <img src="https://img.shields.io/github/v/release/jamesgober/config?display_name=tag&style=flat" alt="GitHub Release"> &nbsp; 
