@@ -1,5 +1,5 @@
 <h1 align="center">
-    <picture picture>
+    <picture>
         <source media="(prefers-color-scheme: dark)" srcset="./docs/media/jamesgober-logo-dark.png">
         <img width="72" height="72" alt="Official brand mark and logo of James Gober. Image shows JG stylish initials encased in a hexagon outline." src="./docs/media/jamesgober-logo.png">
     </picture>
@@ -25,44 +25,39 @@
 
 <h2>A Flexible PHP Configuration Manager</h2>
 
-Config is a lightweight yet powerful PHP library designed to handle your application's configuration needs with ease and efficiency. Supporting multiple formats like **JSON**, **XML**, **YAML**, **INI**, and **PHP** arrays out of the box, it provides the flexibility to add custom parsers tailored to your specific requirements. Config offers a modular design, efficient caching capabilities, and a straightforward API to streamline configuration management in modern PHP projects.
-
+Config is a lightweight yet powerful PHP library designed to handle your application's configuration needs with ease and efficiency. Supporting multiple formats like **JSON**, **XML**, **YAML**, **INI**, and **PHP** arrays out of the box, it provides the flexibility to add custom parsers tailored to your specific requirements. With robust error handling, performance-focused design, and a modular architecture, **JG\Config** simplifies configuration management for modern PHP projects.
 
 &nbsp;
-
 
 ## Key Features
 
-- **Multi-Format Support**: Seamlessly load configurations from **JSON**, **XML**, **YAML**, **INI**, and **PHP** array files.
+- **Multi-Format Support**: Seamlessly load configurations from **JSON**, **XML**, **YAML**, **INI**, **PHP**, and **CONF** files.
 - **Custom Parsers**: Extend functionality by adding support for any file format with ease.
-- **Organized Management**: Efficiently manage configuration data with a modular and extendable design.
+- **Performance Optimizations**: Designed for speed, even with large or deeply nested configurations.
+- **Advanced Features**: Includes caching, dynamic flattening control, and stream parsing for modern workflows.
 - **Robust Error Handling**: Custom exceptions provide clear and actionable feedback for debugging.
 - **Lightweight and Intuitive**: A simple yet powerful API designed for minimal overhead and ease of use.
 
-
 &nbsp;
-
-
 
 ## Why Choose This Library?
 
-When it comes to configuration management, **JG\Config** stands out for its:
+**JG\Config** is built for developers who demand efficiency, reliability, and flexibility in their projects:
 
-- **Multi-Format Support**: Handles **JSON**, **YAML**, **INI**, **XML**, **PHP** arrays, and **CONF** files with ease.
-- **Modular Design**: Extend or replace parsers to meet your specific needs.
-- **Performance Optimizations**: Engineered for speed, even with large or deeply nested configurations.
-- **Advanced Features**: Offers caching, dynamic flattening control, and stream parsing for modern PHP projects.
-- **Error-Resilient**: Comprehensive error handling and detailed exception messages for seamless debugging.
-- **Tested Reliability**: Rigorously tested with PHPUnit to ensure predictable and stable performance.
-- **Built on S.O.L.I.D principles** for clean, maintainable, and extendable code.
-- **Optimized for high performance**, reducing overhead during configuration loads.
-- **Flexible, modular design** allows seamless extensions with custom parsers.
+- **High Performance**: Optimized for speed with low overhead, making it ideal for high-load scenarios.
+- **Modular Design**: Extend or replace parsers effortlessly to meet custom needs.
+- **Error-Resilient**: Provides comprehensive error handling with meaningful exception messages.
+- **Extensively Tested**: Rigorously tested with PHPUnit for predictable and stable performance.
+- **Built on Principles**: Adheres to S.O.L.I.D design principles and emphasizes maintainability and extensibility.
 
-Whether you’re building a small application or managing a complex project, JG\Config provides the tools to handle your configuration needs efficiently.
+Whether you're building a small application or managing a large-scale project, **JG\Config** provides a robust solution to streamline your configuration management.
 
 &nbsp;
 
+---
+
 &nbsp;
+
 
 ## Installation
 
@@ -75,8 +70,8 @@ $ composer require jamesgober/config
 
 &nbsp;
 
-## Quick Start
 
+## Quick Start
 
 #### Load Configurations
 Effortlessly load multiple configuration files in various formats:
@@ -128,7 +123,7 @@ ConfigParserFactory::registerParser('custom', MyCustomParser::class);
 
 &nbsp;
 
-### **Supported Formats**
+## Supported Formats
 
 | **Format** | **Example**       | **Extension** |
 |------------|-------------------|----------------|
@@ -139,82 +134,17 @@ ConfigParserFactory::registerParser('custom', MyCustomParser::class);
 | XML        | `config.xml`      | `.xml`         |
 | YAML       | `config.yaml`     | `.yaml`, `.yml`|
 
-
 &nbsp;
 
-#### Example Configurations
-
-**PHP Array (`config.php`)**
-```php
-return [
-    'host' => 'localhost',
-    'port' => 3306,
-    'user' => 'root',
-    'password' => 'secret',
-];
-```
+For more examples, see our **[Advanced Usage](docs/ADVANCED.md)** guide.
 
 &nbsp;
-
-
-**JSON (`config.json`)**
-```json
-{
-    "host": "localhost",
-    "port": 3306,
-    "user": "root",
-    "password": "secret"
-}
-```
-
-&nbsp;
-
-**INI (`config.ini`)**
-```ini
-[app]
-name    = "TestApp"
-version = "1.0.0"
-debug   = true
-cache   = null
-```
-
-&nbsp;
-
-**XML (`config.xml`)**
-```xml
-<app>
-    <name>TestApp</name>
-    <version>1.0.0</version>
-    <debug>true</debug>
-    <cache>null</cache>
-</app>
-```
-
-&nbsp;
-
-**YAML (`config.yaml`)**
-```yaml
-database:
-    host: localhost
-    port: 3306
-    user: root
-    password: secret
-
-app:
-    debug: true
-    cache: null
-```
 
 ---
 
-&nbsp;
+## Error Handling
 
-### **Error Handling**
-
-&nbsp;
-
-
-#### Custom Exceptions
+### Custom Exceptions
 
 JG\Config uses custom exceptions for intuitive error handling:
 
@@ -223,7 +153,6 @@ JG\Config uses custom exceptions for intuitive error handling:
 | `ConfigException`                       | General errors related to configuration.       |
 | `ConfigParseException`                  | Errors when parsing configuration files.       |
 | `InvalidParserException`                | When unsupported or invalid parsers are used.  |
-
 
 &nbsp;
 
@@ -238,98 +167,20 @@ try {
 }
 ```
 
-&nbsp;
+---
 
 &nbsp;
 
 ## Advanced Features
 
-Unlock additional capabilities with these advanced features designed for power users:
+Explore advanced capabilities like caching, custom parsers, and dynamic flattening in our **[Advanced Guide](docs/ADVANCED.md)**.
 
 &nbsp;
 
-### 1. Custom Parsers
-Extend the library to support additional file formats by registering custom parsers:
-```php
-use JG\Config\ConfigParserFactory;
-
-// Register a custom parser for `.custom` files
-ConfigParserFactory::registerParser('custom', MyCustomParser::class);
-```
-Your custom parser must implement the `ParserInterface`:
-```php
-use JG\Config\Parsers\ParserInterface;
-
-class MyCustomParser implements ParserInterface {
-    public function parse(string $filePath): array {
-        // Custom parsing logic
-    }
-}
-```
-
-&nbsp;
-
-### 2. Dynamic Flattening Control
-Toggle the flattening of nested configuration keys dynamically:
-```php
-$config = new Config('/path/to/config', false); // Disable flattening
-$config->load('nested_config.json');
-
-// Access without flattening
-$nested = $config->get('database.credentials');
-```
-
-&nbsp;
-
-### 3. Advanced Caching
-Leverage robust caching mechanisms for optimal performance:
-- Save configurations with expiration:
-  ```php
-  $config->saveCache('/path/to/cache.json', Config::EXPIRE_ONE_DAY);
-  ```
-- Load cached configurations:
-  ```php
-  if ($config->loadCache('/path/to/cache.json')) {
-      echo "Loaded from cache!";
-  }
-  ```
-- Handle cache expiration and invalidation seamlessly:
-  ```php
-  $config->deleteCache('/path/to/cache.json');
-  ```
-
-&nbsp;
-
-### 4. Stream Parsing
-Load configurations from streams (e.g., PSR-7 compatible):
-```php
-use Psr\Http\Message\StreamInterface;
-
-$config->loadFromStream($stream);
-```
-
-&nbsp;
-
-### 5. Error and Debugging Utilities
-Identify and resolve configuration issues with informative error messages:
-- Handle invalid file formats, parsing errors, and more with custom exceptions.
-- Access meaningful error details:
-  ```php
-  try {
-      $config->load('invalid_file.xyz');
-  } catch (ConfigException $e) {
-      echo $e->getMessage();
-  }
-  ```
-
-
-&nbsp;
-
-&nbsp;
-
+---
 
 ## Directory Structure
-The library is organized to ensure scalability, maintainability, and ease of contribution. Here's an overview:
+
 ```
 src/
 ├── Config.php                  # Core configuration management class
@@ -348,124 +199,46 @@ src/
 tests/                          # Unit and integration tests
 ```
 
-&nbsp;
-
-The library follows a modular structure. Here's what each part does:
-
-- `src/`: Contains the core library code.
-  - `Config.php`: The main configuration management class.
-  - `ConfigParserFactory.php`: Dynamically resolves the appropriate parser for a given file format.
-  - `Exceptions/`: Custom exceptions for handling errors gracefully.
-  - `Parsers/`: Houses all built-in parsers (e.g., JSON, INI, XML, YAML).
-- `tests/`: PHPUnit tests ensuring stability and reliability.
-
-&nbsp;
-
-
-&nbsp;
-
-&nbsp;
-
 ---
-
-&nbsp;
-
-<!--
-<h2 align="center">⏱️<br>PERFORMANCE</h2>
--->
-&nbsp;
-
-
-## Benchmarks
-&#9888; Coming soon.
-<!-- Coming soon: Detailed performance benchmarks across various configuration formats and scenarios. -->
-
-&nbsp;
-
-
-
-&nbsp;
-
----
-
-&nbsp;
 
 &nbsp;
 
 ## Reporting Security Issues
-We take security seriously. If you find a vulnerability, please consult our [SECURITY POLICY] 
-and follow the instructions for reporting. 
+
+We take security seriously. If you find a vulnerability, please consult our **[SECURITY POLICY](.github/SECURITY.md)** and follow the instructions for reporting. 
 
 Do not use public issue trackers or forums to disclose sensitive information.
 
 &nbsp;
 
-##
-
-&nbsp;
-
+---
 
 ## Reporting Bugs and Feature Requests
-If you encounter a bug, have a feature request, or want to report a non-security-related issue, 
-please use our **[Issue Tracker](https://github.com/jamesgober/Config/issues)**. Providing 
-detailed information about the problem will help us address it more efficiently. 
 
-For security vulnerabilities, refer to our **[SECURITY POLICY]**.
-
-
-&nbsp;
+For non-security issues, such as bugs or feature requests, please use our **[Issue Tracker](https://github.com/jamesgober/Config/issues)**. Providing detailed information will help us resolve issues efficiently.
 
 &nbsp;
 
 ---
-
-&nbsp;
-
-
-## Roadmap or Future Goals
-&#9888; Coming soon.
-<!-- Coming Soon -->
-
-
-
-&nbsp;
-
----
-
-&nbsp;
-
-&nbsp;
-
-
 
 ## Design Philosophy
 
-`JG\Config` is built on principles of high performance, efficiency, and maintainability. It adheres to S.O.L.I.D design principles and emphasizes modularity for seamless extensibility.
-
-For a detailed breakdown of our design principles, please refer to the [Design Philosophy](./docs/DESIGN_PHILOSOPHY.md).
-
-
+Learn about the principles that guide the development of **JG\Config** in our **[Design Philosophy](docs/DESIGN_PHILOSOPHY.md)**.
 
 &nbsp;
+
+---
 
 ## Contributing
-We welcome contributions to improve and expand the library! If you're interested in contributing, please visit the links listed below.
 
-- [CONTRIBUTING]
-- [CODE OF CONDUCT]
-
-
+Contributions are welcome! Check out the **[Contribution Guidelines](.github/CONTRIBUTING.md)** and review our **[Code of Conduct](.github/CODE_OF_CONDUCT.md)** for more information.
 
 &nbsp;
 
-## **Changelog**
-For a detailed list of changes and updates in each version, please refer to the [CHANGELOG](CHANGELOG.md).
-
-
-
-&nbsp;
+---
 
 ## License
+
 This library is open-source software licensed under the [MIT license](LICENSE).
 
 &nbsp;
