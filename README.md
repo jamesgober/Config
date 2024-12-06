@@ -387,7 +387,7 @@ For a detailed breakdown of our design principles, please refer to the [Design P
 
 ## Contributing
 
-We welcome contributions to improve and expand the library! If you're interested in [contributing](./.github/CONTRIBUTING.md), please take a moment to review our [Contribution Guidelines](./.github/CONTRIBUTING.md).
+We welcome contributions to improve and expand the library! If you're interested in [contributing], please take a moment to review our [Contribution Guidelines].
 
 &nbsp;
 
@@ -414,3 +414,11 @@ This library is open-source software licensed under the [MIT license](LICENSE).
 <p align="center"><small>COPYRIGHT &copy; 2024 JAMES GOBER.</small></p>
 
 &nbsp;
+
+
+
+
+[Contribution Guidelines]: https://github.com/jamesgober/Config/tree/master/.github/CONTRIBUTING.md
+[contributing]:            https://github.com/jamesgober/Config/tree/master/.github/CONTRIBUTING.md
+[Code of Conduct]:         https://github.com/jamesgober/Config/tree/master/.github/CODE_OF_CONDUCT.md
+[SECURITY]:                https://github.com/jamesgober/Config/tree/master/.github/SECURITY.md
