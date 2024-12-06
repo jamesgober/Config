@@ -1,23 +1,49 @@
-<h1 align="center" id="top">
-    <b>CONFIG</b>
+<h1 align="center">
+    <picture picture>
+        <source media="(prefers-color-scheme: dark)" srcset="./docs/media/jamesgober-logo-dark.png">
+        <img width="72" height="72" alt="Official brand mark and logo of James Gober. Image shows JG stylish initials encased in a hexagon outline." src="./docs/media/jamesgober-logo.png">
+    </picture>
     <br>
-    <small>
-        <sup>PHP LIBRARY</sup>
-    </small>
+    <b>CONFIG MANAGER</b>
+    <br>
+    <sup>BY JAMES GOBER</sup>
+    <br>
 </h1>
 
-**Config** is a modular PHP library for loading, managing, and extending configurations. It supports multiple formats out of the box, including JSON, XML, YAML, INI, and PHP arrays, with the flexibility to add custom parsers.
+<div style="text-align: center;">
+    <img src="https://img.shields.io/github/stars/jamesgober/config?style=flat" alt="GitHub Stars"> &nbsp; 
+    <img src="https://img.shields.io/github/issues/jamesgober/config?style=flat" alt="GitHub Issues"> &nbsp;  
+    <img src="https://img.shields.io/github/v/release/jamesgober/config?display_name=tag&style=flat" alt="GitHub Release"> &nbsp; 
+    <img src="https://img.shields.io/github/license/jamesgober/config?style=flat" alt="GitHub License"> &nbsp;
+    <img src="https://img.shields.io/badge/PHP-8.2-blue?style=flat" alt="PHP Version">
+</div>
+
+&nbsp;
+
+<h2>A Flexible PHP Configuration Manager</h2>
+
+Config is a lightweight yet powerful PHP library designed to handle your application's configuration needs with ease and efficiency. Supporting multiple formats like JSON, XML, YAML, INI, and PHP arrays out of the box, it provides the flexibility to add custom parsers tailored to your specific requirements. Config offers a modular design, efficient caching capabilities, and a straightforward API to streamline configuration management in modern PHP projects.
 
 
-## Features
+&nbsp;
 
-- Load configurations from multiple file formats: JSON, XML, YAML, INI, and PHP arrays.
-- Manage configuration data in an organized, extendable way.
-- Support for custom parsers to handle additional file formats.
-- Comprehensive error handling with custom exceptions.
-- Lightweight and easy-to-use API.
+
+## Key Features
+
+- **Multi-Format Support**: &nbsp; Seamlessly load configurations from JSON, XML, YAML, INI, and PHP array files.
+- **Custom Parsers**: &nbsp; Extend functionality by adding support for any file format with ease.
+- **Organized Management**: &nbsp; Efficiently manage configuration data with a modular and extendable design.
+- **Robust Error Handling**: &nbsp; Custom exceptions provide clear and actionable feedback for debugging.
+- **Lightweight and Intuitive**: &nbsp; A simple yet powerful API designed for minimal overhead and ease of use.
+
+
+&nbsp;
 
 ---
+
+&nbsp;
+
+
 
 ## Installation
 
@@ -27,8 +53,14 @@ Install via [composer](https://getcomposer.org/download/):
 $ composer require jamesgober/config
 ```
 
+&nbsp;
+
+
+&nbsp;
 
 ---
+
+&nbsp;
 
 ## Quick Start
 
@@ -212,8 +244,12 @@ This library is open-source software licensed under the [MIT license](LICENSE).
 
 
 &nbsp;
-[&uarr; Top](#top)
+
 <h2></h2>
 <p align="center"><small>COPYRIGHT &copy; 2024 JAMES GOBER.</small></p>
+
+<div align="center">
+    <a href="#top">&uarr;<br>TOP</a>
+</div>
 
 &nbsp;
