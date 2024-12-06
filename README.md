@@ -377,12 +377,19 @@ The library follows a modular structure. Here's what each part does:
 
 &nbsp;
 
-## Contributing
+## Design Philosophy
 
-We welcome contributions! Please submit pull requests or report issues on [GitHub](https://github.com/jamesgober/Config).
+JG\Config is built on principles of high performance, efficiency, and maintainability. It adheres to S.O.L.I.D design principles and emphasizes modularity for seamless extensibility.
+
+For a detailed breakdown of our design principles, please refer to the [Design Philosophy](./DESIGN_PHILOSOPHY.md).
 
 &nbsp;
 
+## Contributing
+
+We welcome contributions to improve and expand the library! If you're interested in [contributing](CONTRIBUTING.md), please take a moment to review our [Contribution Guidelines](CONTRIBUTING.md).
+
+&nbsp;
 
 ## **Changelog**
 For a detailed list of changes and updates in each version, please refer to the [CHANGELOG](CHANGELOG.md).
@@ -396,7 +403,6 @@ This library is open-source software licensed under the [MIT license](LICENSE).
 
 
 &nbsp;
-
 
 &nbsp;
 
