@@ -75,8 +75,6 @@ Thank you for considering contributing to **JG\Config**! Contributions of all ty
 
 &nbsp;
 
-&nbsp;
-
 ## Coding Standards
 
 Our library follows strict coding and design principles to maintain high-quality code and performance. Please ensure your contributions adhere to the following guidelines:
