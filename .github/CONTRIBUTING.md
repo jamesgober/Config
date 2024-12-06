@@ -4,7 +4,7 @@
         <img width="72" height="72" alt="Official brand mark and logo of James Gober. Image shows JG stylish initials encased in a hexagon outline." src="./../docs/media/jamesgober-logo.png">
     </picture>
     <br>
-    <b>CONTRIBUTORS</b>
+    <b>CONTRIBUTING</b>
 </h1>
 
 Thank you for considering contributing to **JG\Config**! Contributions of all types are welcome and help improve the project. This guide outlines how you can participate effectively.
