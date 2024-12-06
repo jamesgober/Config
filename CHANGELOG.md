@@ -1,9 +1,17 @@
 <h1 align="center" id="top">
+    <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="./docs/media/jamesgober-logo-dark.png">
+        <img width="72" height="72" alt="Official brand mark and logo of James Gober. Image shows JG stylish initials encased in a hexagon outline." src="./docs/media/jamesgober-logo.png">
+    </picture>
+    <br>
     <b>CHANGELOG</b>
 </h1>
 
 This file tracks all notable changes made to the project, including new features, improvements, and bug fixes. This changelog follows the principles of [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), ensuring clarity and consistency. Versioning adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+&nbsp;
+
+### Valid Change Types
 - **Added**: For new features or functionality.
 - **Changed**: For changes in existing functionality.
 - **Deprecated**: For soon-to-be removed features.
@@ -23,12 +31,70 @@ This file tracks all notable changes made to the project, including new features
 
 &nbsp;
 
-<!-- 
-# 
+<!--  
+# CHANGELOG
 ----------------------------- -->
 ## [1.0.0] - 2024-12-06
 
-### Added
+### **Highlights**
+The first stable release of **JG\Config** marks the culmination of extensive development, testing, and optimization. With a focus on flexibility, performance, and reliability, this version is ready to power modern PHP projects with advanced configuration management features.
+
+---
+
+### **Added**
+- **Advanced Documentation**:
+  - Introduced comprehensive markdown documentation, including dedicated files for `CONTRIBUTING`, `CODE_OF_CONDUCT`, `SECURITY`, and `ADVANCED` features.
+  - Added a new `Design Philosophy` document to outline core principles.
+  - Enhanced README to provide clear examples and quick-start guides.
+- **Modular Directory Structure**:
+  - Organized core library components, parsers, and tests for improved maintainability.
+- **Mailto Integration**:
+  - Embedded `mailto` links for issue reporting and security disclosures.
+- **Support for Non-UTF-8 Encoding**:
+  - Gracefully handles and converts non-UTF-8 encoded configuration files.
+
+---
+
+### **Changed**
+- **Advanced Features Refactoring**:
+  - Moved "Advanced Features" section from README into a dedicated `ADVANCED.md` file.
+  - Improved clarity and accessibility for dynamic flattening, caching, custom parsers, and stream parsing.
+- **Error Messaging**:
+  - Improved clarity and consistency of error messages across parsers and file-handling operations.
+- **Performance Enhancements**:
+  - Optimized CONF parsing using regex for faster key-value extraction while maintaining readability.
+- **Project Layout**:
+  - Moved documentation files (e.g., CONTRIBUTING.md) into the `.github/` directory for cleaner repository structure.
+  
+---
+
+### **Fixed**
+- **Parser Stability**:
+  - Addressed edge cases in `ConfigParserFactory` where incorrect file formats could cause unhandled exceptions.
+- **Caching Bugs**:
+  - Resolved inconsistencies in cache expiration handling and structure validation.
+- **Flattening Edge Cases**:
+  - Fixed bugs in the `flattenArray` logic to handle deeply nested configurations more reliably.
+- **UTF-8 Enforcement**:
+  - Fixed handling of files auto-converted to UTF-8 on certain servers.
+
+---
+
+### **Removed**
+- **Redundant Test Parsers**:
+  - Removed testing-related parsers from production for cleaner deployment.
+- **Deprecated README Content**:
+  - Streamlined README to focus on essential information; moved advanced topics to separate markdown files.
+
+---
+
+### **Documentation Updates**
+- Full documentation now hosted directly in the repository:
+  - **README.md**: Comprehensive introduction, quick-start guide, and installation instructions.
+  - **ADVANCED.md**: Detailed insights into advanced features like caching, flattening, and custom parsers.
+  - **DESIGN_PHILOSOPHY.md**: Explanation of the principles driving the library's design.
+  - **SECURITY.md**: Instructions for responsibly reporting vulnerabilities.
+  - **CONTRIBUTING.md**: Guidelines for contributing to the project.
 
 
 
@@ -172,7 +238,7 @@ This file tracks all notable changes made to the project, including new features
 <!-- 
 # UNRELEASED
 ----------------------------- -->
-[unreleased]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.4...HEAD
+[unreleased]: https://github.com/jamesgober/Config/compare/v1.0.0...HEAD
 <!-- 
 # VERSIONS
 ----------------------------- -->
@@ -180,7 +246,7 @@ This file tracks all notable changes made to the project, including new features
 <!-- 
 # PRE-RELEASE
 ----------------------------- -->
-
+[1.0.0]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.5...v1.0.0
 [1.0.0-RC.5]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.4...v1.0.0-RC.5
 [1.0.0-RC.4]: https://github.com/jamesgober/Config/compare/v1.0.0-RC3...v1.0.0-RC.4
 [1.0.0-RC.3]: https://github.com/jamesgober/Config/compare/v1.0.0-RC.2...v1.0.0-RC3

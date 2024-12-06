@@ -10,32 +10,36 @@
             "xml", 
             "settings", 
             "parser", 
-            "loader"
+            "loader",
+            "psr",
+            "configuration-manager",
+            "settings-management"
         ],
         "minimum-stability": "stable",
         "prefer-stable": true,
-        "time": "2024-12-03",
-        "type": "library",
-        "license": "MIT",
+        "time":     "2024-12-06",
+        "type":     "library",
+        "license":  "MIT",
         "homepage": "https://github.com/jamesgober/Config",
         "support": {
             "issues": "https://github.com/jamesgober/Config/issues",
-            "docs": "https://github.com/jamesgober/Config#readme"
+            "docs":   "https://github.com/jamesgober/Config#readme",
+            "source": "https://github.com/jamesgober/Config"
         },
         "authors": [
             {
-                "name": "James Gober",
-                "email": "me@jamesgober.com",
+                "name":     "James Gober",
+                "email":    "me@jamesgober.com",
                 "homepage": "https://jamesgober.com",
-                "role": "Developer"
+                "role":     "Developer"
             }
         ],
         "require": {
-            "php": ">=8.1",
+            "php": ">=8.2",
             "ext-json": "*",
             "ext-xml": "*",
             "symfony/yaml": "^7.1",
-                "psr/http-message": "^2.0"
+            "psr/http-message": "^2.0"
         },
         "require-dev": {
             "phpunit/phpunit": "^10.5.17",
@@ -62,11 +66,5 @@
                 "@test"
             ],
             "test:ci": "@php vendor/bin/phpunit --testdox"
-        },
-        "repositories": [
-            {
-                "type": "vcs",
-                "url": "https://github.com/jamesgober/Config"
-            }
-        ]
+        }
     }
