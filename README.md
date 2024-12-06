@@ -48,7 +48,7 @@ Config is a lightweight yet powerful PHP library designed to handle your applica
 
 When it comes to configuration management, JG\Config stands out for its:
 
-- **Multi-Format Support**: Handles JSON, YAML, INI, XML, PHP arrays, and CONF files with ease.
+- **Multi-Format Support**: Handles **JSON**, **YAML**, **INI**, **XML**, **PHP** arrays, and **CONF** files with ease.
 - **Modular Design**: Extend or replace parsers to meet your specific needs.
 - **Performance Optimizations**: Engineered for speed, even with large or deeply nested configurations.
 - **Advanced Features**: Offers caching, dynamic flattening control, and stream parsing for modern PHP projects.
