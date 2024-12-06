@@ -419,6 +419,6 @@ This library is open-source software licensed under the [MIT license](LICENSE).
 
 
 [Contribution Guidelines]: https://github.com/jamesgober/Config/tree/master/.github/CONTRIBUTING.md
-[contributing]:            https://github.com/jamesgober/Config/tree/master/.github/CONTRIBUTING.md
+[contributing]:            .github/CONTRIBUTING.md
 [Code of Conduct]:         https://github.com/jamesgober/Config/tree/master/.github/CODE_OF_CONDUCT.md
 [SECURITY]:                https://github.com/jamesgober/Config/tree/master/.github/SECURITY.md
