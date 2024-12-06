@@ -27,16 +27,15 @@ We strive to foster a respectful and professional environment for all contributo
 5. **No Malicious Behavior**:
    Contributions that intentionally cause harm to the project or community will not be tolerated.
 
-##
-
 &nbsp;
 
 ## **Reporting Issues**
+&#9888; Coming soon.
+<!--
 If you experience or observe behavior that violates these guidelines, please report it by:
 - Emailing the maintainer at [your-email@example.com].
 - Providing a clear description of the issue.
-
-##
+-->
 
 &nbsp;
 
