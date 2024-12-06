@@ -381,7 +381,7 @@ The library follows a modular structure. Here's what each part does:
 
 JG\Config is built on principles of high performance, efficiency, and maintainability. It adheres to S.O.L.I.D design principles and emphasizes modularity for seamless extensibility.
 
-For a detailed breakdown of our design principles, please refer to the [Design Philosophy](./.github/DESIGN_PHILOSOPHY.md).
+For a detailed breakdown of our design principles, please refer to the [Design Philosophy](./docs/DESIGN_PHILOSOPHY.md).
 
 &nbsp;
 
