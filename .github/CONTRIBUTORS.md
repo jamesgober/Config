@@ -1,7 +1,7 @@
 <h1 align="center">
     <picture picture>
-        <source media="(prefers-color-scheme: dark)" srcset="./docs/media/jamesgober-logo-dark.png">
-        <img width="72" height="72" alt="Official brand mark and logo of James Gober. Image shows JG stylish initials encased in a hexagon outline." src="./docs/media/jamesgober-logo.png">
+        <source media="(prefers-color-scheme: dark)" srcset="./../docs/media/jamesgober-logo-dark.png">
+        <img width="72" height="72" alt="Official brand mark and logo of James Gober. Image shows JG stylish initials encased in a hexagon outline." src="./../docs/media/jamesgober-logo.png">
     </picture>
     <br>
     <b>CONTRIBUTORS</b>
@@ -83,7 +83,7 @@ Our library follows strict coding and design principles to maintain high-quality
 - Write **clean, maintainable, and efficient** code, with performance and extensibility in mind.
 - Use **detailed PHPDoc comments** for all methods, classes, and properties, ensuring clarity for other contributors.
 
-For a deeper understanding of our philosophy, refer to the [Design Philosophy](./DESIGN_PHILOSOPHY.md).
+For a deeper understanding of our philosophy, refer to the [Design Philosophy](./../docs/DESIGN_PHILOSOPHY.md).
 
 &nbsp;
 
