@@ -71,6 +71,10 @@ Thank you for considering contributing to **JG\Config**! Contributions of all ty
 
 &nbsp;
 
+---
+
+&nbsp;
+
 &nbsp;
 
 ## Coding Standards
@@ -108,10 +112,11 @@ We adhere to the following principles to maintain code quality:
    - Write reusable components that integrate seamlessly with the existing library.
    - Ensure new features don't introduce breaking changes to public APIs.
 
+&nbsp;
+
+
 #### **Examples**
 Here’s how we expect contributors to approach code design:
-
-&nbsp;
 
 **Do**:
 ```php
@@ -139,10 +144,19 @@ class ConfigLoader
 
 &nbsp;
 
+---
+
+&nbsp;
+
 &nbsp;
 
 ## **Community Guidelines**
 Respect all contributors and engage in productive discussions. If disputes arise, maintain professionalism.
+
+&nbsp;
+
+
+&nbsp;
 
 &nbsp;
 
