@@ -1,7 +1,7 @@
 <h1 align="center">
     <picture picture>
-        <source media="(prefers-color-scheme: dark)" srcset="./docs/media/jamesgober-logo-dark.png">
-        <img width="72" height="72" alt="Official brand mark and logo of James Gober. Image shows JG stylish initials encased in a hexagon outline." src="./docs/media/jamesgober-logo.png">
+        <source media="(prefers-color-scheme: dark)" srcset="./../docs/media/jamesgober-logo-dark.png">
+        <img width="72" height="72" alt="Official brand mark and logo of James Gober. Image shows JG stylish initials encased in a hexagon outline." src="./../docs/media/jamesgober-logo.png">
     </picture>
     <br>
     <b>SECURITY POLICY</b>
