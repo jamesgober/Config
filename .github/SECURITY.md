@@ -16,8 +16,6 @@ We take security seriously and appreciate your efforts to make **JG\Config** saf
 
 &nbsp;
 
-&nbsp;
-
 ## **Supported Versions**
 We actively support and patch vulnerabilities in the latest **stable** and **release candidate** versions of the library.
 

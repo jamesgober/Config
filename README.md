@@ -15,7 +15,7 @@
     <img src="https://img.shields.io/github/issues/jamesgober/config?style=flat" alt="GitHub Issues"> &nbsp;  
     <img src="https://img.shields.io/github/v/release/jamesgober/config?display_name=tag&style=flat" alt="GitHub Release"> &nbsp; 
     <img src="https://img.shields.io/github/license/jamesgober/config?style=flat" alt="GitHub License"> &nbsp;
-    <img src="https://img.shields.io/badge/PHP-8.2-blue?style=flat" alt="PHP Version">
+    <img src="https://img.shields.io/badge/PHP-8.2-blue?style=flat" alt="PHP Version"> &nbsp;
     <a href="https://packagist.org/packages/jamesgober/config" target="_blank">
         <img alt="Packagist Downloads" src="https://img.shields.io/packagist/dt/jamesgober/config?style=flat&color=%23f26f1a">
     </a>
@@ -46,7 +46,7 @@ Config is a lightweight yet powerful PHP library designed to handle your applica
 
 ## Why Choose This Library?
 
-When it comes to configuration management, JG\Config stands out for its:
+When it comes to configuration management, **JG\Config** stands out for its:
 
 - **Multi-Format Support**: Handles **JSON**, **YAML**, **INI**, **XML**, **PHP** arrays, and **CONF** files with ease.
 - **Modular Design**: Extend or replace parsers to meet your specific needs.
@@ -62,9 +62,7 @@ Whether you’re building a small application or managing a complex project, JG\
 
 &nbsp;
 
-
 &nbsp;
-
 
 ## Installation
 
@@ -156,6 +154,9 @@ return [
 ];
 ```
 
+&nbsp;
+
+
 **JSON (`config.json`)**
 ```json
 {
@@ -210,6 +211,8 @@ app:
 
 ### **Error Handling**
 
+&nbsp;
+
 
 #### Custom Exceptions
 
@@ -234,6 +237,8 @@ try {
     echo "Error: " . $e->getMessage();
 }
 ```
+
+&nbsp;
 
 &nbsp;
 
@@ -320,11 +325,11 @@ Identify and resolve configuration issues with informative error messages:
 
 &nbsp;
 
+&nbsp;
+
 
 ## Directory Structure
-
 The library is organized to ensure scalability, maintainability, and ease of contribution. Here's an overview:
-
 ```
 src/
 ├── Config.php                  # Core configuration management class
@@ -341,8 +346,6 @@ src/
 │   ├── XmlParser.php
 │   └── YamlParser.php
 tests/                          # Unit and integration tests
-
-
 ```
 
 &nbsp;
@@ -359,9 +362,17 @@ The library follows a modular structure. Here's what each part does:
 &nbsp;
 
 
+&nbsp;
+
+&nbsp;
 
 ---
 
+&nbsp;
+
+<!--
+<h2 align="center">⏱️<br>PERFORMANCE</h2>
+-->
 &nbsp;
 
 
@@ -371,23 +382,79 @@ The library follows a modular structure. Here's what each part does:
 
 &nbsp;
 
+
+
+&nbsp;
+
+---
+
+&nbsp;
+
+&nbsp;
+
+## Reporting Security Issues
+We take security seriously. If you find a vulnerability, please consult our [SECURITY POLICY] 
+and follow the instructions for reporting. 
+
+Do not use public issue trackers or forums to disclose sensitive information.
+
+&nbsp;
+
+##
+
+&nbsp;
+
+
+## Reporting Bugs and Feature Requests
+If you encounter a bug, have a feature request, or want to report a non-security-related issue, 
+please use our **[Issue Tracker](https://github.com/jamesgober/Config/issues)**. Providing 
+detailed information about the problem will help us address it more efficiently. 
+
+For security vulnerabilities, refer to our **[SECURITY POLICY]**.
+
+
+&nbsp;
+
+&nbsp;
+
+---
+
+&nbsp;
+
+
 ## Roadmap or Future Goals
 &#9888; Coming soon.
 <!-- Coming Soon -->
 
+
+
 &nbsp;
+
+---
+
+&nbsp;
+
+&nbsp;
+
+
 
 ## Design Philosophy
 
-JG\Config is built on principles of high performance, efficiency, and maintainability. It adheres to S.O.L.I.D design principles and emphasizes modularity for seamless extensibility.
+`JG\Config` is built on principles of high performance, efficiency, and maintainability. It adheres to S.O.L.I.D design principles and emphasizes modularity for seamless extensibility.
 
 For a detailed breakdown of our design principles, please refer to the [Design Philosophy](./docs/DESIGN_PHILOSOPHY.md).
+
+
 
 &nbsp;
 
 ## Contributing
+We welcome contributions to improve and expand the library! If you're interested in contributing, please visit the links listed below.
 
-We welcome contributions to improve and expand the library! If you're interested in [contributing], please take a moment to review our [Contribution Guidelines].
+- [CONTRIBUTING]
+- [CODE OF CONDUCT]
+
+
 
 &nbsp;
 
@@ -395,30 +462,37 @@ We welcome contributions to improve and expand the library! If you're interested
 For a detailed list of changes and updates in each version, please refer to the [CHANGELOG](CHANGELOG.md).
 
 
+
 &nbsp;
 
 ## License
-
 This library is open-source software licensed under the [MIT license](LICENSE).
-
 
 &nbsp;
 
 &nbsp;
 
 <div align="center">
-    <a href="#top">&uarr;<br>TOP</a>
+    <a href="#top">&uarr;<br> TOP </a> 
 </div>
 
+<!-- 
+# COPYRIGHT
+######################################################### -->
 <h2></h2>
-<p align="center"><small>COPYRIGHT &copy; 2024 JAMES GOBER.</small></p>
+<p align="center">
+    <small>COPYRIGHT &copy; 2024 JAMES GOBER &amp; JAMESGOBER.COM.</small>
+</p>
 
 &nbsp;
 
 
-
-
-[Contribution Guidelines]: https://github.com/jamesgober/Config/tree/master/.github/CONTRIBUTING.md
-[contributing]:            .github/CONTRIBUTING.md
-[Code of Conduct]:         https://github.com/jamesgober/Config/tree/master/.github/CODE_OF_CONDUCT.md
-[SECURITY]:                https://github.com/jamesgober/Config/tree/master/.github/SECURITY.md
+<!-- 
+# LINKS
+######################################################### -->
+[Contribution Guidelines]: .github/CONTRIBUTING.md
+[CONTRIBUTING]:            .github/CONTRIBUTING.md
+[CODE OF CONDUCT]:         .github/CODE_OF_CONDUCT.md
+[REPORT SECURITY ISSUES]:  .github/SECURITY.md
+[SECURITY POLICY]:         .github/SECURITY.md
+[SECURITY]:                .github/SECURITY.md
