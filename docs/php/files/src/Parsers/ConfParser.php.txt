@@ -10,7 +10,7 @@
  * @package    JG\Config\Parsers
  * @version    1.0.0
  * @since      1.0.0
- * @author     James Gober <code@jamesgober.com>
+ * @author     James Gober <me@jamesgober.com>
  * @link       https://github.com/jamesgober/Config
  * @license    MIT License
  * @copyright  2024 James Gober (https://jamesgober.com)
