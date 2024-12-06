@@ -86,6 +86,8 @@ Our library follows strict coding and design principles to maintain high-quality
 - Write **clean, maintainable, and efficient** code, with performance and extensibility in mind.
 - Use **detailed PHPDoc comments** for all methods, classes, and properties, ensuring clarity for other contributors.
 
+For a deeper understanding of our philosophy, refer to the [Design Philosophy](./DESIGN_PHILOSOPHY.md).
+
 &nbsp;
 
 #### **Design Principles**
