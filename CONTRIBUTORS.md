@@ -5,9 +5,6 @@
     </picture>
     <br>
     <b>CONTRIBUTORS</b>
-    <br>
-    <sup>GUIDELINES &amp; SUPPORT</sup>
-    <br>
 </h1>
 
 Thank you for considering contributing to **JG\Config**! Contributions of all types are welcome and help improve the project. This guide outlines how you can participate effectively.
