@@ -30,11 +30,11 @@ Config is a lightweight yet powerful PHP library designed to handle your applica
 
 ## Key Features
 
-- **Multi-Format Support**: &nbsp; Seamlessly load configurations from JSON, XML, YAML, INI, and PHP array files.
-- **Custom Parsers**: &nbsp; Extend functionality by adding support for any file format with ease.
-- **Organized Management**: &nbsp; Efficiently manage configuration data with a modular and extendable design.
-- **Robust Error Handling**: &nbsp; Custom exceptions provide clear and actionable feedback for debugging.
-- **Lightweight and Intuitive**: &nbsp; A simple yet powerful API designed for minimal overhead and ease of use.
+- **Multi-Format Support**: Seamlessly load configurations from JSON, XML, YAML, INI, and PHP array files.
+- **Custom Parsers**: Extend functionality by adding support for any file format with ease.
+- **Organized Management**: Efficiently manage configuration data with a modular and extendable design.
+- **Robust Error Handling**: Custom exceptions provide clear and actionable feedback for debugging.
+- **Lightweight and Intuitive**: A simple yet powerful API designed for minimal overhead and ease of use.
 
 
 &nbsp;
