@@ -17,6 +17,22 @@ This file tracks all notable changes made to the project, including new features
 -->
 
 
+
+
+
+
+&nbsp;
+
+<!-- 
+# 
+----------------------------- -->
+## [1.0.0] - 2024-12-06
+
+### Added
+
+
+
+
 &nbsp;
 
 <!-- 

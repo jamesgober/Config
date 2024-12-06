@@ -1,6 +1,6 @@
 {
         "name": "jamesgober/config",
-        "description": "A PHP library for loading, managing, and extending configurations. Supports multiple formats out of the box, including JSON, XML, YAML, INI, and custom parsers.",
+        "description": "Advanced PHP configuration management designed for flexibility and performance, with built-in support for JSON, YAML, XML, INI, and limitless custom formats.",
         "keywords": [
             "php", 
             "config", 
@@ -25,7 +25,7 @@
         "authors": [
             {
                 "name": "James Gober",
-                "email": "code@jamesgober.com",
+                "email": "me@jamesgober.com",
                 "homepage": "https://jamesgober.com",
                 "role": "Developer"
             }
